@@ -1,0 +1,86 @@
+# ==========================================
+# OS: macOS
+# ==========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==========================================
+# JetBrains Rider / IntelliJ / ReSharper
+# ==========================================
+.idea/
+*.sln.iml
+*.userprefs
+*.user
+*.suo
+*.sln.docstates
+*.DotSettings.user
+*.DotSettings
+resharper-host/
+resharper-host.*
+.vs/
+.vscode/
+
+# ==========================================
+# Unity
+# ==========================================
+# OS-generated
+Desktop.ini
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+MemoryCaptures/
+# Cache
+# (Unity’s cache directory can be huge, don’t commit)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!*.meta
+
+# Hidden folders
+.*.swp
+*.swp
+*.tmp
+*.bak
+*.pidb
+*.booproj
+*.svd
+
+# Unity3D generated files
+*.unityproj
+*.pidb
+*.booproj
+*.userprefs
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.sln.docstates
+
+# Crashlytics generated
+crashlytics-build.properties
+
+# Gradle cache
+.gradle/
+ExportedObj/
+.consulo/
+*.apk
+*.unitypackage
+
