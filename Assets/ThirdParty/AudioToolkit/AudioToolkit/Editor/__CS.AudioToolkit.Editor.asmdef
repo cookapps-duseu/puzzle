@@ -1,0 +1,19 @@
+{
+    "name": "CS.AudioToolkit.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:539aa86fa5492084c8121671a47b7bf5",
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

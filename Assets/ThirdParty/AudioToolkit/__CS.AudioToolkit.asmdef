@@ -1,0 +1,20 @@
+{
+    "name": "__CS.AudioToolkit",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "Unity",
+            "expression": "1",
+            "define": "CS_ESSENTIALS_ASSETSTORE"
+        }
+    ],
+    "noEngineReferences": false
+}

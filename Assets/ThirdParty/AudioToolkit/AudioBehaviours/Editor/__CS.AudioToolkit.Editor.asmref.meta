@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: aea362d801d703244b0f267dbf76e98d
+AssemblyDefinitionReferenceImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2647
+  packageName: Audio Toolkit
+  packageVersion: 12.1
+  assetPath: Assets/ThirdParty/AudioToolkit/AudioBehaviours/Editor/__CS.AudioToolkit.Editor.asmref
+  uploadId: 772533

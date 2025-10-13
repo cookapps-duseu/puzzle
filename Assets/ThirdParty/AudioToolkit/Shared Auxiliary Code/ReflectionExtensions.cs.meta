@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dab83dd39a0976d41b9bab5e421c8f15
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2647
+  packageName: Audio Toolkit
+  packageVersion: 12.1
+  assetPath: Assets/ThirdParty/AudioToolkit/Shared Auxiliary Code/ReflectionExtensions.cs
+  uploadId: 772533

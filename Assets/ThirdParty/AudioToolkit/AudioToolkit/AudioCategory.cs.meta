@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 92a8675dfdb818c418424e7c2027cace
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2647
+  packageName: Audio Toolkit
+  packageVersion: 12.1
+  assetPath: Assets/ThirdParty/AudioToolkit/AudioToolkit/AudioCategory.cs
+  uploadId: 772533

@@ -1,0 +1,9 @@
+fileFormatVersion: 1
+guid: d8cd7e379c2ccc242af04f0746d2d65b
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2647
+  packageName: Audio Toolkit
+  packageVersion: 12.1
+  assetPath: Assets/ThirdParty/AudioToolkit/AudioToolkit/AudioObject.cs
+  uploadId: 772533

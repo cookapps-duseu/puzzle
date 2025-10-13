@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 539aa86fa5492084c8121671a47b7bf5
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2647
+  packageName: Audio Toolkit
+  packageVersion: 12.1
+  assetPath: Assets/AudioToolkit/__CS.AudioToolkit.asmdef
+  uploadId: 772533

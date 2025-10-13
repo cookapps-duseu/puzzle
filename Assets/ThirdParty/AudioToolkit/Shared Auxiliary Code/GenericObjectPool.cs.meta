@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7488fd1277b999e488c69b597d8e1671
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 2647
+  packageName: Audio Toolkit
+  packageVersion: 12.1
+  assetPath: Assets/ThirdParty/AudioToolkit/Shared Auxiliary Code/GenericObjectPool.cs
+  uploadId: 772533
