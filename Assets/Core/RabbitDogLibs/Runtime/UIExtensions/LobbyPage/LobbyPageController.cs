@@ -33,7 +33,7 @@ namespace RabbitDog.UIExtensions
             return null;
         }
 
-        private void Initialize()
+        public void Initialize()
         {
             pointerId = -1;
             InitializePages();

@@ -1,3 +1,4 @@
+#define ENABLE_MEMORYPACK
 using System;
 using System.Collections.Generic;
 using System.Text;

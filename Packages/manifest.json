@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "com.cookapps.iap": "2.5.1",
     "com.cysharp.memorypack": "https://github.com/Cysharp/MemoryPack.git?path=src/MemoryPack.Unity/Assets/MemoryPack.Unity",
+    "com.cysharp.zstring": "https://github.com/Cysharp/ZString.git?path=src/ZString.Unity/Assets/Scripts/ZString",
     "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.unity.addressables": "2.7.4",
     "com.unity.collab-proxy": "2.10.0",
@@ -46,5 +48,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "CookApps",
+      "url": "http://packages.tech.cookapps.com",
+      "scopes": [
+        "com.cookapps"
+      ]
+    }
+  ]
 }
