@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -42,6 +43,8 @@ namespace RabbitDog.UIExtensions
         [SerializeField] private Image fillImage;
         [SerializeField] private RectTransform handleRect;
         [SerializeField] private RectTransform handleContainerRect;
+        [SerializeField] private TMP_Text text;
+        [SerializeField] private string format = "{0:N0}/{1:N0}";
 
         // field is never assigned warning
 #pragma warning disable 649
@@ -154,6 +157,22 @@ namespace RabbitDog.UIExtensions
                 anchorMin[(int) axis] = anchorMax[(int) axis] = reverseValue ? 1 - normalizedValue : normalizedValue;
                 handleRect.anchorMin = anchorMin;
                 handleRect.anchorMax = anchorMax;
+            }
+        }
+        
+        public void SetValue(float cur, float max, string customText = null)
+        {
+            Value = cur / max * maxValue;
+            if (text != null)
+            {
+                if (!string.IsNullOrEmpty(customText))
+                {
+                    text.text = customText;
+                }
+                else
+                {
+                    text.SetText(format, cur, max);
+                }
             }
         }
     }

@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fcf9bce74484d878ca0ca8fe1db802a, type: 3}
   m_Name: SpecDataAsset
   m_EditorClassIdentifier: 
-  FilterTitle: 
-  SheetId: 
-  SheetName: 
-  SourceNamespace: 
-  SourceEnumNamespace: 
-  SourceFolder: 
+  FilterTitle: '[SpecData]'
+  SheetId: 1nO-eyM2b_V1rEqPoDTdFCsUuCx3klh8_5PDVMcE76Jc
+  SheetName: '[SpecData] Template'
+  SourceNamespace: Template
+  SourceEnumNamespace: Template
+  SourceFolder: Assets/_Project/1. Scripts/Spec/Generated
   OriginalJsonFolder: 
   JsonParser: 1
   Obfuscator: 0
   CreateValidFile: 0
   PreBuildValid: 0
-  EncryptKey: 
+  EncryptKey: ddO#Afn*l62ZLXNd
