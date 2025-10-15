@@ -31,7 +31,7 @@ namespace Template
     }
 
     [GeneratorSpecData]
-    public partial class Consume
+    public partial class SpecConsumeGroup
     {
         [GeneratorId(nameof(id), typeof(int))]
         public int id;

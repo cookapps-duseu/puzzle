@@ -40,7 +40,7 @@ namespace Template
         public string Value => value;
     }
     
-    public partial class Consume : IConsume
+    public partial class SpecConsumeGroup : IConsume
     {
         public AssetType ConsumeType
         {
