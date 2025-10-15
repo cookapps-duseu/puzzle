@@ -1,6 +1,6 @@
 namespace Template
 {
-        public static class SpecEnumExtensions
+    public static class SpecEnumExtensions
     {
         public static bool IsBuffType(this AssetType assetType)
         {
@@ -17,6 +17,5 @@ namespace Template
                 _ => 0,
             };
         }
-
     }
 }

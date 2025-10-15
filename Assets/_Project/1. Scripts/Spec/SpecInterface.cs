@@ -9,7 +9,7 @@ namespace Template
     {
         public int Id { get; }
         public string ProductId { get; }
-        public int Price { get; }
+        public float Price { get; }
         
         public RewardBundle RewardGroups { get; }
     }
@@ -21,9 +21,9 @@ namespace Template
         public long RewardAmount { get; }
     }
     
-    public interface ISpecConsumeGroup
+    public interface IConsume
     {
-        public AssetType CostAssetType { get; }
-        public int CostAmount { get; }
+        public AssetType ConsumeType { get; }
+        public int ConsumeAmount { get; }
     }
 }

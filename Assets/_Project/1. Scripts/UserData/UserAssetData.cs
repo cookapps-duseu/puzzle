@@ -194,13 +194,13 @@ namespace Template
             return true;
         }
         
-        public bool ConsumeAssets(List<ISpecConsumeGroup> consumeGroups)
+        public bool ConsumeAssets(List<IConsume> consumeGroups)
         {
             // 선검사
             for (var i = 0; i < consumeGroups.Count; i++)
             {
                 var group = consumeGroups[i];
-                if (!CanUseAsset(group.CostAssetType, group.CostAmount))
+                if (!CanUseAsset(group.ConsumeType, group.ConsumeAmount))
                     return false;
             }
             
@@ -208,7 +208,7 @@ namespace Template
             for (var i = 0; i < consumeGroups.Count; i++)
             {
                 var group = consumeGroups[i];
-                UseAsset(group.CostAssetType, group.CostAmount);
+                UseAsset(group.ConsumeType, group.ConsumeAmount);
             }
 
             return true;
@@ -308,14 +308,13 @@ namespace Template
         
         public int GetMaxHeart()
         {
-            // var maxHeart = SpecOptionDict.MaxHeart;
+            var maxHeart = SpecOptionDict.MaxHeart;
             // if (TimerManager.Instance.IsRunning(TimerType.IncrementHeart))
             // {
             //     maxHeart += SpecOptionDict.AdditionalMaxHeart;
             // }
-            //
-            // return maxHeart;
-            return 5;
+            
+            return maxHeart;
         }
     }
 }

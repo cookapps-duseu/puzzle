@@ -35,8 +35,11 @@ namespace Template
         
         private static int? heartRecoverSecond;
         public static int HeartRecoverSecond => heartRecoverSecond ??= GetOptionFromSpec_Int("HEART_RECOVER_SECOND", 30 * 60);
-        
-        
+
+        private static int? maxHeart;
+        public static int MaxHeart => maxHeart ??= GetOptionFromSpec_Int("HEART_MAX_COUNT", 5);
+
+
         #region GetMethods
         private static string GetOptionFromSpec_String(string optionName, string defaultData)
         {
