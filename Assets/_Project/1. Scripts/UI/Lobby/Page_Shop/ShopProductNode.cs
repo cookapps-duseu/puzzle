@@ -33,7 +33,7 @@ namespace Template
                 loadedHandle.Release();
             }
             
-            var handle = Addressables.InstantiateAsync($"Prefabs/UI/Pool/Shop/Shop_PackageSlot_{spec.Id}.prefab", CachedTr);
+            var handle = Addressables.InstantiateAsync($"Prefabs/UI/ShopPackages/Shop_PackageSlot_{spec.Id}.prefab", CachedTr);
             loadedHandle = handle;
             await handle.WaitUntilDone();
 

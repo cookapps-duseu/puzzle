@@ -42,7 +42,6 @@ namespace Template
             {
                 SelectableBlockerManager.Instance.RemoveBlocker(this);
                 TouchManager.RemoveBlocker(this);
-                cts = null;
                 EndTutorial();
             }
         }
