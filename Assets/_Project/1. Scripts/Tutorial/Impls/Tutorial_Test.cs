@@ -12,21 +12,19 @@ namespace Template
         
         public Tutorial_Test()
         {
-            SelectableBlockerManager.Instance.AddBlocker(this);
-            TouchManager.AddBlocker(this);   
             Debug.Log("Tutorial_Test Constructed");
         }
         
         ~Tutorial_Test()
         {
-            SelectableBlockerManager.Instance.RemoveBlocker(this);
-            TouchManager.RemoveBlocker(this);
             Debug.Log("Tutorial_Test Destructed");
         }
         
         protected override void OnStartTutorial()
         {
             cts = new ();
+            SelectableBlockerManager.Instance.AddBlocker(this);
+            TouchManager.AddBlocker(this);
             _ = WaitAndEndTutorialAsync(cts.Token);
         }
 
@@ -42,6 +40,9 @@ namespace Template
             }
             finally
             {
+                SelectableBlockerManager.Instance.RemoveBlocker(this);
+                TouchManager.RemoveBlocker(this);
+                cts = null;
                 EndTutorial();
             }
         }

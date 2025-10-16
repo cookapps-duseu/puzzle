@@ -64,7 +64,6 @@ namespace Template
             await SceneTransition.FadeOutAsync();
 
             RunEnterFlow();
-            TutorialManager.Instance.RunTutorial<Tutorial_Test>();
         }
 
         protected override void OnPreExit()
