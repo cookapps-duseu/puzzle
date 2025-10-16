@@ -1,8 +1,6 @@
-using System;
-using RabbitDog;
 using UnityEngine;
 
-namespace Template
+namespace RabbitDog.Utility
 {
     public class RegisteredObject : CachedMonoBehaviour, IRegistrable
     {

@@ -68,9 +68,9 @@ namespace Template
             var originPos = srcPositionRoot.position;
             effectData = param as PopupItemRewardEffectParam;
 
-            var hasPlayButton = ObjectRegistry.Instance.Get(RegistryKey.PlayButton, out var playButton);
-            var hasCoinPanel = ObjectRegistry.Instance.Get(RegistryKey.CoinPanel, out var coinPanel);
-            var hasHeartPanel = ObjectRegistry.Instance.Get(RegistryKey.CoinPanel, out var heartPanel);
+            var hasPlayButton = ObjectRegistry.Instance.TryGetObject(RegistryKey.PlayButton, out var playButton);
+            var hasCoinPanel = ObjectRegistry.Instance.TryGetObject(RegistryKey.CoinPanel, out var coinPanel);
+            var hasHeartPanel = ObjectRegistry.Instance.TryGetObject(RegistryKey.CoinPanel, out var heartPanel);
             
             for (var i = 0; i < effectData.dataList.Count; i++)
             {

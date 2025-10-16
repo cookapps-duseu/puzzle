@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using RabbitDog;
 using UnityEngine;
 
-namespace Template
+namespace RabbitDog.Utility
 {
     public enum RegistryKey
     {
         None,
+        MainCamera,
         PlayButton,
         CoinPanel,
         HeartPanel,
@@ -26,6 +26,9 @@ namespace Template
     {
         private readonly Dictionary<RegistryKey, List<IRegistrable>> _registry = new ();
 
+        public static event Action<RegistryKey, IRegistrable> Registered;
+        public static event Action<RegistryKey, IRegistrable> Unregistered;
+
         public void Register(IRegistrable obj)
         {
             if (!_registry.TryGetValue(obj.Key, out var list))
@@ -37,6 +40,7 @@ namespace Template
             if (!list.Contains(obj))
             {
                 list.Add(obj);
+                Registered?.Invoke(obj.Key, obj);
             }
         }
 
@@ -44,7 +48,11 @@ namespace Template
         {
             if (_registry.TryGetValue(obj.Key, out var list))
             {
-                list.Remove(obj);
+                if (list.Remove(obj))
+                {
+                    Unregistered?.Invoke(obj.Key, obj);
+                }
+
                 if (list.Count == 0)
                 {
                     _registry.Remove(obj.Key);
@@ -70,7 +78,7 @@ namespace Template
             return false;
         }
         
-        public bool Get(RegistryKey key, out RegisteredObject res)
+        public bool TryGetObject(RegistryKey key, out RegisteredObject res)
         {
             return TryGetObject<RegisteredObject>(key, out res);
         }

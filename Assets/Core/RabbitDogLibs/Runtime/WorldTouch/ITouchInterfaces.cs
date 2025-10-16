@@ -12,9 +12,9 @@ namespace RabbitDog.WorldTouch
     {
         string ListenerName { get; }
         int TouchPriority { get; }
-        void TouchBegan(RaycastHit2D[] hits, int hitCount, Vector3 touchPos);
-        bool TouchMoved(RaycastHit2D[] hits, int hitCount, Vector3 startTouchPos, Vector3 touchPos, Vector3 deltaPos);
-        bool TouchEnded(RaycastHit2D[] hits, int hitCount, Vector3 startTouchPos, Vector3 touchPos);
+        bool TouchBegan(Vector3 touchPos);
+        bool TouchMoved(Vector3 startTouchPos, Vector3 touchPos, Vector3 deltaPos);
+        bool TouchEnded(Vector3 startTouchPos, Vector3 touchPos);
         void TouchCanceled();
     }
 }

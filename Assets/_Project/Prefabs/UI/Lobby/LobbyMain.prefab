@@ -1109,7 +1109,7 @@ MonoBehaviour:
   - {fileID: 5772967087552279948}
   - {fileID: 7124385394431286697}
   - {fileID: 4622687530398538225}
-  pageIndicator: {fileID: 0}
+  pageIndicator: {fileID: 8271422175748436058}
 --- !u!1 &7552173760816696878
 GameObject:
   m_ObjectHideFlags: 0
