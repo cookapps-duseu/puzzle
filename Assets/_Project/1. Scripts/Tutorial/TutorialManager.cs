@@ -8,8 +8,6 @@ namespace Template
 {
     public class TutorialManager : SingletonMonoBehaviour<TutorialManager>
     {
-        [SerializeField, ReadOnly] private List<TutorialTarget> targets = new ();
-
         private TutorialBase currentTutorial;
         private Action onEndTutorial;
 
@@ -23,36 +21,7 @@ namespace Template
             base.OnDestroy();
             currentTutorial?.Kill();
             currentTutorial = null;
-            targets.Clear();
             onEndTutorial = null;
-        }
-        
-        public void RegisterTarget(TutorialTarget target)
-        {
-            if (!targets.Contains(target))
-            {
-                targets.Add(target);
-            }
-        }
-
-        public void UnregisterTarget(TutorialTarget target)
-        {
-            targets.Remove(target);
-        }
-
-        private bool TryFindTarget(string targetName, out TutorialTarget target)
-        {
-            target = null;
-            for (var i = 0; i < targets.Count; i++)
-            {
-                if (targets[i].TargetName == targetName)
-                {
-                    target = targets[i];
-                    return true;
-                }
-            }
-
-            return false;
         }
 
         public bool RunTutorial<T>() where T : TutorialBase, new ()

@@ -11,6 +11,7 @@ namespace Template
 {
     public class LobbyPage_Home : LobbyPageBase
     {
+        
         protected override void OnEnter()
         {
             base.OnEnter();

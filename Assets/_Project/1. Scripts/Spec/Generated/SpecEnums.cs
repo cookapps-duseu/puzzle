@@ -19,6 +19,7 @@ namespace Template
         None = 0,
         Coin = 1,
         Heart = 2,
+        InfiniteHeart = 102,
     }
 
     public enum ContentsType
