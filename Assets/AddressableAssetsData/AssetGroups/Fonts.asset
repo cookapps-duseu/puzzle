@@ -10,14 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: Fonts
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
-  m_GUID: 40e9541de6f3441a58748ee0c6a629aa
-  m_SerializeEntries: []
+  m_GroupName: Fonts
+  m_GUID: 61ac6e39bb0ef43c89bf50485906a5e0
+  m_SerializeEntries:
+  - m_GUID: f1ffd6988dfa14da08df6d9c79382965
+    m_Address: Font
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4ade68e96471b4e6a8534ff8ec1b63d0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 3363649f3e8034a2dbb750593f6de39c, type: 2}
-    - {fileID: 11400000, guid: dcf1491db0f9c4166a3b75970bcfb94e, type: 2}
+    - {fileID: 11400000, guid: ae86353c51ff84b0f88673518c0f1495, type: 2}
+    - {fileID: 11400000, guid: 28ac72c5c425a485e9f24cd1fe57d948, type: 2}

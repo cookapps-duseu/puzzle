@@ -10,23 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Data
+  m_Name: Popups
   m_EditorClassIdentifier: 
-  m_GroupName: Data
-  m_GUID: d591fffc9664a447f86ae82a1400ae28
+  m_GroupName: Popups
+  m_GUID: b609e2ccfbecd41399c6f58560ec957a
   m_SerializeEntries:
-  - m_GUID: 228dc1095b4c24342a412b43ae96bc70
-    m_Address: Data
+  - m_GUID: a2f1f361143cc499d9b20d04e5238d1c
+    m_Address: Prefabs/Popup
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5260fb197ff594789a574542ad49d154
-    m_Address: Data/AtlasManager.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 635b09257bd6f494ba717d0fb1ed4656
-    m_Address: Data/SafeAreaSettings.asset
+  - m_GUID: d31b69a37ba594565aed0afb8f3e7ebb
+    m_Address: Prefabs/Popup/Common
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -34,5 +29,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 4ade68e96471b4e6a8534ff8ec1b63d0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 9139a4a9b993d4e11bc5fd107b949732, type: 2}
-    - {fileID: 11400000, guid: fe4ab58fa52aa4534a8fad58e6d571b0, type: 2}
+    - {fileID: 11400000, guid: b7d650667b8c545aaae87260ecccf95d, type: 2}
+    - {fileID: 11400000, guid: e843cdca3915844a59652c9c9ad6799f, type: 2}

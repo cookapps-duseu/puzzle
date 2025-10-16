@@ -9,8 +9,12 @@ namespace RabbitDog.UIManagements
     {
         public const string LoadingMain = "Prefabs/UI/Loading/LoadingMain.prefab"; // LoadingMain (Prefab: LoadingMain)
         public const string LobbyMain = "Prefabs/UI/Lobby/LobbyMain.prefab"; // LobbyMain (Prefab: LobbyMain)
-        public const string PopupCommon = "Prefabs/UI/Popup/Common/PopupCommon.prefab"; // PopupCommon (Prefab: PopupCommon)
-        public const string PopupItemRewardEffect = "Prefabs/UI/Popup/Common/PopupItemRewardEffect.prefab"; // PopupItemRewardEffect (Prefab: PopupItemRewardEffect)
+        public const string PopupCommon = "Prefabs/Popup/Common/PopupCommon.prefab"; // PopupCommon (Prefab: PopupCommon)
+        public const string PopupItemRewardEffect = "Prefabs/Popup/Common/PopupItemRewardEffect.prefab"; // PopupItemRewardEffect (Prefab: PopupItemRewardEffect)
+        public const string SceneInGame = "Scenes/InGame.unity"; // Scene: InGame
+        public const string SceneLoading = "Scenes/Loading.unity"; // Scene: Loading
+        public const string SceneLobby = "Scenes/Lobby.unity"; // Scene: Lobby
+        public const string SceneTitle = "Scenes/Title.unity"; // Scene: Title
         public const string TitleMain = "Prefabs/UI/Title/TitleMain.prefab"; // TitleMain (Prefab: TitleMain)
         public const string TopPanelBar = "Prefabs/UI/TopPanelBar/TopPanelBar.prefab"; // TopPanelBar (Prefab: TopPanelBar)
     }

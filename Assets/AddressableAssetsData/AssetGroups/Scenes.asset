@@ -10,23 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Data
+  m_Name: Scenes
   m_EditorClassIdentifier: 
-  m_GroupName: Data
-  m_GUID: d591fffc9664a447f86ae82a1400ae28
+  m_GroupName: Scenes
+  m_GUID: e8fac2a1e7a9d45639686aa131043877
   m_SerializeEntries:
-  - m_GUID: 228dc1095b4c24342a412b43ae96bc70
-    m_Address: Data
+  - m_GUID: 149df28e8361e4e2ba1968d51a7a6e21
+    m_Address: Scenes/Title.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5260fb197ff594789a574542ad49d154
-    m_Address: Data/AtlasManager.asset
+  - m_GUID: 31011f48ce6ec425eaab1fa832c86ff7
+    m_Address: Scenes/Lobby.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 635b09257bd6f494ba717d0fb1ed4656
-    m_Address: Data/SafeAreaSettings.asset
+  - m_GUID: 31c01826b99fa4dc1a11a7035fac212a
+    m_Address: Scenes/InGame.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a3fe365d5af74ef78bc8acf2047e101
+    m_Address: Scenes/Loading.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -34,5 +39,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 4ade68e96471b4e6a8534ff8ec1b63d0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 9139a4a9b993d4e11bc5fd107b949732, type: 2}
-    - {fileID: 11400000, guid: fe4ab58fa52aa4534a8fad58e6d571b0, type: 2}
+    - {fileID: 11400000, guid: c3d7b6a19ee304517a1ae22484fb15b5, type: 2}
+    - {fileID: 11400000, guid: f5c3f085f504b48dda22ee5e25cca924, type: 2}

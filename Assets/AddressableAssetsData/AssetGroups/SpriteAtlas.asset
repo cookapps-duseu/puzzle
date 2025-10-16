@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Data
+  m_Name: SpriteAtlas
   m_EditorClassIdentifier: 
-  m_GroupName: Data
-  m_GUID: d591fffc9664a447f86ae82a1400ae28
+  m_GroupName: SpriteAtlas
+  m_GUID: b6ace3bd2220f415ebbd6380ae38bed2
   m_SerializeEntries:
-  - m_GUID: 228dc1095b4c24342a412b43ae96bc70
-    m_Address: Data
+  - m_GUID: 3a5df03289edc423f9b1682b005670eb
+    m_Address: Assets/_Project/SpriteAtlas/Atlas_UI_Lobby.spriteatlasv2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5260fb197ff594789a574542ad49d154
-    m_Address: Data/AtlasManager.asset
+  - m_GUID: 700d2f15e555d4a59986d4932bd332e0
+    m_Address: Assets/_Project/SpriteAtlas
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 635b09257bd6f494ba717d0fb1ed4656
-    m_Address: Data/SafeAreaSettings.asset
+  - m_GUID: bb67ec7f359fa44e5a279224e822fd84
+    m_Address: Assets/_Project/SpriteAtlas/Dynamic
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -34,5 +34,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 4ade68e96471b4e6a8534ff8ec1b63d0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 9139a4a9b993d4e11bc5fd107b949732, type: 2}
-    - {fileID: 11400000, guid: fe4ab58fa52aa4534a8fad58e6d571b0, type: 2}
+    - {fileID: 11400000, guid: 39a9b930c1a4243ad8888867db50d7e4, type: 2}
+    - {fileID: 11400000, guid: b0dc292c3800b48e2a925c551573d0cb, type: 2}

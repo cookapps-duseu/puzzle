@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725b3eded1ac4239be01de098ee6e740, type: 3}
   m_Name: AtlasManager
   m_EditorClassIdentifier: 
-  folderPathGuids: []
-  atlasRefs: []
+  folderPathGuids:
+  - bb67ec7f359fa44e5a279224e822fd84
+  atlasRefs:
+  - m_AssetGUID: a199cb01204704e61a40164d0e514af7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   spriteNameToAtlasDict:
     m_keys: 
     m_values: 

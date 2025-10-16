@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
-  m_Name: Data_BundledAssetGroupSchema
+  m_Name: Fonts_BundledAssetGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: b5bc9c17c52f041a99c14a35106e732d, type: 2}
+  m_Group: {fileID: 11400000, guid: bae4480a91ff14a449ce6c9090c45773, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Id: 6ef7d9dd51864458e8fe72f08052f343
   m_LoadPath:
     m_Id: a7fa07a5173fe4d72b490b77513c6772
-  m_BundleMode: 1
+  m_BundleMode: 0
   m_AssetBundleProviderType:
     m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider

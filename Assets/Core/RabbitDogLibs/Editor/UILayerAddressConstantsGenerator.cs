@@ -79,12 +79,12 @@ namespace RabbitDog.Editor
             ProjectFolderSettingsProvider.EnsureFolderHierarchy(outputFolder);
             var outputPath = ProjectFolderSettingsProvider.BuildChildPath(outputFolder, OutputFileName);
 
-            var addresses = settings == null ? Array.Empty<PrefabAddressInfo>() : CollectPrefabAddresses(settings);
+            var addresses = settings == null ? Array.Empty<AssetAddressInfo>() : CollectAssetAddresses(settings);
             var generationInfo = new GenerationInfo(outputPath, projectFolders.GeneratedNamespace);
             WriteConstants(addresses, generationInfo);
         }
 
-        private static PrefabAddressInfo[] CollectPrefabAddresses(AddressableAssetSettings settings)
+        private static AssetAddressInfo[] CollectAssetAddresses(AddressableAssetSettings settings)
         {
             var collectedEntries = new List<AddressableAssetEntry>();
             foreach (var group in settings.groups)
@@ -93,7 +93,7 @@ namespace RabbitDog.Editor
                 group.GatherAllAssets(collectedEntries, true, true, false);
             }
 
-            var results = new List<PrefabAddressInfo>();
+            var results = new List<AssetAddressInfo>();
             var seenAssetPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             var usedFieldNames = new HashSet<string>(StringComparer.Ordinal);
 
@@ -101,19 +101,42 @@ namespace RabbitDog.Editor
             {
                 if (entry == null) continue;
                 if (string.IsNullOrEmpty(entry.AssetPath)) continue;
-                if (!entry.AssetPath.EndsWith(".prefab", StringComparison.OrdinalIgnoreCase)) continue;
                 if (string.IsNullOrEmpty(entry.address)) continue;
                 if (!seenAssetPaths.Add(entry.AssetPath)) continue;
 
-                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(entry.AssetPath);
-                if (prefab == null) continue;
-                var uiLayerComponent = prefab.GetComponent<UILayer>();
-                if (uiLayerComponent == null) continue;
+                if (entry.AssetPath.EndsWith(".prefab", StringComparison.OrdinalIgnoreCase))
+                {
+                    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(entry.AssetPath);
+                    if (prefab == null) continue;
+                    var uiLayerComponent = prefab.GetComponent<UILayer>();
+                    if (uiLayerComponent == null) continue;
 
-                var prefabName = Path.GetFileNameWithoutExtension(entry.AssetPath);
-                var className = uiLayerComponent.GetType().Name;
-                var fieldName = BuildFieldName(className, usedFieldNames);
-                results.Add(new PrefabAddressInfo(fieldName, className, prefabName, entry.address));
+                    var prefabName = Path.GetFileNameWithoutExtension(entry.AssetPath);
+                    var className = uiLayerComponent.GetType().Name;
+                    var fieldName = BuildFieldName(className, usedFieldNames);
+
+                    var commentBuilder = new StringBuilder(className);
+                    if (!string.IsNullOrEmpty(prefabName))
+                    {
+                        commentBuilder.Append(" (Prefab: ");
+                        commentBuilder.Append(prefabName);
+                        commentBuilder.Append(')');
+                    }
+
+                    results.Add(new AssetAddressInfo(fieldName, entry.address, commentBuilder.ToString()));
+                    continue;
+                }
+
+                if (entry.AssetPath.EndsWith(".unity", StringComparison.OrdinalIgnoreCase))
+                {
+                    var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(entry.AssetPath);
+                    if (sceneAsset == null) continue;
+
+                    var sceneName = sceneAsset.name;
+                    var fieldName = BuildFieldName($"Scene{sceneName}", usedFieldNames);
+                    var comment = string.IsNullOrEmpty(sceneName) ? "Scene" : $"Scene: {sceneName}";
+                    results.Add(new AssetAddressInfo(fieldName, entry.address, comment));
+                }
             }
 
             results.Sort((left, right) => string.CompareOrdinal(left.FieldName, right.FieldName));
@@ -155,7 +178,7 @@ namespace RabbitDog.Editor
             return candidate;
         }
 
-        private static void WriteConstants(IReadOnlyList<PrefabAddressInfo> addresses, GenerationInfo info)
+        private static void WriteConstants(IReadOnlyList<AssetAddressInfo> addresses, GenerationInfo info)
         {
             var folder = Path.GetDirectoryName(info.OutputPath);
             if (!string.IsNullOrEmpty(folder))
@@ -188,15 +211,17 @@ namespace RabbitDog.Editor
                     builder.Append(entry.FieldName);
                     builder.Append(" = \"");
                     builder.Append(entry.Address);
-                    builder.Append("\"; // ");
-                    builder.Append(entry.ClassName);
-                    if (!string.IsNullOrEmpty(entry.PrefabName))
+                    builder.Append("\"");
+                    if (!string.IsNullOrEmpty(entry.Comment))
                     {
-                        builder.Append(" (Prefab: ");
-                        builder.Append(entry.PrefabName);
-                        builder.Append(")");
+                        builder.Append("; // ");
+                        builder.Append(entry.Comment);
+                        builder.AppendLine();
                     }
-                    builder.AppendLine();
+                    else
+                    {
+                        builder.AppendLine(";");
+                    }
                 }
             }
 
@@ -252,20 +277,18 @@ namespace RabbitDog.Editor
             }
         }
 
-        private readonly struct PrefabAddressInfo
+        private readonly struct AssetAddressInfo
         {
-            public PrefabAddressInfo(string fieldName, string className, string prefabName, string address)
+            public AssetAddressInfo(string fieldName, string address, string comment)
             {
                 FieldName = fieldName;
-                ClassName = className;
-                PrefabName = prefabName;
                 Address = address;
+                Comment = comment;
             }
 
             public string FieldName { get; }
-            public string ClassName { get; }
-            public string PrefabName { get; }
             public string Address { get; }
+            public string Comment { get; }
         }
 
         private readonly struct GenerationInfo

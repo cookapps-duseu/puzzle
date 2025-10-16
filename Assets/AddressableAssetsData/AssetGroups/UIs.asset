@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UIs
+  m_EditorClassIdentifier: 
+  m_GroupName: UIs
+  m_GUID: 67bddebaaab1a4ccf8c39ac411c36fdb
+  m_SerializeEntries:
+  - m_GUID: 4a90622fa70fb414b9283ad87f6dc0ff
+    m_Address: Prefabs/UI/Loading
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 637534f9274944f28a13b3ebb3ec0c0f
+    m_Address: Prefabs/UI/TopPanelBar
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 760099cc1f71c4f68a53c9e26e965077
+    m_Address: Prefabs/UI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 911ea2ec0e310448d8c897e5a7b285cd
+    m_Address: Prefabs/UI/Common
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b6d87fa0bdcf403e801640630af59e2
+    m_Address: Prefabs/UI/Lobby
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff22fd3de20664179aab5300d4432748
+    m_Address: Prefabs/UI/Title
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4ade68e96471b4e6a8534ff8ec1b63d0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 544fa0954fc074e2b905b215333d9129, type: 2}
+    - {fileID: 11400000, guid: 8b41a82950d0642b2b4eb14aafafa19d, type: 2}
