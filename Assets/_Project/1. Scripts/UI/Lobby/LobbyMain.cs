@@ -22,7 +22,7 @@ namespace Template
     }
     
     [RegisterUILayer(UILayerType.Cover, UILayerAddressConstants.LobbyMain)]
-    [RegisterScene("Lobby", "Scenes/Lobby.unity", typeof(LobbyMain))]
+    [RegisterScene("Lobby", UILayerAddressConstants.SceneLobby, typeof(LobbyMain))]
     public class LobbyMain : UILayer
     {
         [SerializeField] private LobbyPageController pageController;

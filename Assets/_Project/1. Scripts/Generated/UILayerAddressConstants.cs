@@ -7,9 +7,11 @@ namespace RabbitDog.UIManagements
 {
     public static class UILayerAddressConstants
     {
+        public const string InGameMain = "Prefabs/UI/InGame/InGameMain.prefab"; // InGameMain (Prefab: InGameMain)
         public const string LoadingMain = "Prefabs/UI/Loading/LoadingMain.prefab"; // LoadingMain (Prefab: LoadingMain)
         public const string LobbyMain = "Prefabs/UI/Lobby/LobbyMain.prefab"; // LobbyMain (Prefab: LobbyMain)
         public const string PopupCommon = "Prefabs/Popup/Common/PopupCommon.prefab"; // PopupCommon (Prefab: PopupCommon)
+        public const string PopupInGamePause = "Prefabs/Popup/InGamePause/PopupInGamePause.prefab"; // PopupInGamePause (Prefab: PopupInGamePause)
         public const string PopupItemRewardEffect = "Prefabs/Popup/Common/PopupItemRewardEffect.prefab"; // PopupItemRewardEffect (Prefab: PopupItemRewardEffect)
         public const string SceneInGame = "Scenes/InGame.unity"; // Scene: InGame
         public const string SceneLoading = "Scenes/Loading.unity"; // Scene: Loading

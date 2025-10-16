@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: UIs
   m_GUID: 67bddebaaab1a4ccf8c39ac411c36fdb
   m_SerializeEntries:
+  - m_GUID: 2a016afb033ff44139137fa846dc152a
+    m_Address: Prefabs/UI/InGame
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a90622fa70fb414b9283ad87f6dc0ff
     m_Address: Prefabs/UI/Loading
     m_ReadOnly: 0

@@ -2,7 +2,7 @@ using RabbitDog.UIManagements;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Popup, "UILayerAddressConstants.PopupInGamePause")]
+    [RegisterUILayer(UILayerType.Popup, UILayerAddressConstants.PopupInGamePause)]
     public class PopupInGamePause : UILayer
     {
         protected override void OnPreEnter(object param)

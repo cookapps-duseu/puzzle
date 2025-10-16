@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Overlay, "UILayerAddressConstants.PopupItemRewardEffect")]
+    [RegisterUILayer(UILayerType.Overlay, UILayerAddressConstants.PopupItemRewardEffect)]
     public class PopupItemRewardEffect : UILayer
     {
         public class PopupItemRewardEffectParam

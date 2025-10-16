@@ -5,7 +5,7 @@ using TMPro;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Modal, "")]
+    [RegisterUILayer(UILayerType.Modal, UILayerAddressConstants.PopupCommon)]
     public class PopupCommon : UILayer
     {
         private class PopupCommonParam

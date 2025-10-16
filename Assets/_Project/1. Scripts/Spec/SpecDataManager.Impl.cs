@@ -7,17 +7,25 @@ namespace Template
     {
         public ISpecOption GetOption(string key)
         {
-            throw new System.NotImplementedException();
+            return SpecOption.Get(key);
         }
         
         public IReadOnlyList<ISpecShop> GetAllShopSpecs()
         {
-            throw new System.NotImplementedException();
+            return SpecShop.All;
         }
 
         public ISpecShop GetSpecShopByProductId(string productId)
         {
-            throw new System.NotImplementedException();
+            for (var i = 0; i < SpecShop.All.Count; i++)
+            {
+                if (SpecShop.All[i].product_id == productId)
+                {
+                    return SpecShop.All[i];
+                }
+            }
+
+            return null;
         }
     }
 }

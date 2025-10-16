@@ -10,8 +10,8 @@ namespace Template
 {
     public class SceneTransition_Image : SceneTransitionBase
     {
-        public static string TitleImagePath => "Textures/NonAtlas/Img_Splash.png";
-        public static string LoadingImagePath => "Textures/NonAtlas/Img_Transition_001.png";
+        public static string TitleImagePath => "Textures/Standalone/Img_Splash.png";
+        public static string LoadingImagePath => "Textures/Standalone/Img_Transition_001.png";
         
         private float fadeInDuration = 0.1f;
         private float fadeOutDuration = 0.25f;

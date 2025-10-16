@@ -3,7 +3,7 @@ using RabbitDog.Utility;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Cover, "UILayerAddressConstants.InGameMain")]
+    [RegisterUILayer(UILayerType.Cover, UILayerAddressConstants.InGameMain)]
     [RegisterScene("InGame", "Scenes/InGame.unity", typeof(InGameMain))]
     public class InGameMain : UILayer
     {

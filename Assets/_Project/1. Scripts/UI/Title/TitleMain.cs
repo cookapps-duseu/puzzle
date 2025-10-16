@@ -9,8 +9,8 @@ using UnityEngine.Purchasing;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Cover, "UILayerAddressConstants.TitleMain")]
-    [RegisterScene("Title", "Scenes/Title.unity", typeof(TitleMain))]
+    [RegisterUILayer(UILayerType.Cover, UILayerAddressConstants.TitleMain)]
+    [RegisterScene("Title", UILayerAddressConstants.SceneTitle, typeof(TitleMain))]
     public class TitleMain : UILayer
     {
         [SerializeField] private AssetReferenceGameObject audioControllerRef;
@@ -32,7 +32,7 @@ namespace Template
             var audioControllerLoadingHandle = audioControllerRef.InstantiateAsync();
             TimerManager.Instance.Initialize(new TimerDataSourceImpl());
             
-            // SpecDataManager.Instance.LoadFromResource();
+            SpecDataManager.Instance.LoadFromResource();
             UserDataManager.Instance.Initialize();
 
             LocalNotificationManager.Initialize();
@@ -49,7 +49,7 @@ namespace Template
 
             var handles = new List<Awaitable>();
             handles.Add(LocalizationManager.Instance.Initialize("Localization"));
-            handles.Add(AlertMessageManager.Instance.Initialize("Prefabs/UI/Popup/Common/PopupToast.prefab"));
+            handles.Add(AlertMessageManager.Instance.Initialize("Prefabs/Popup/Common/PopupToast.prefab"));
             
             //AppsFlyer 초기화
             // AppsflyerManager.Instance.AppsflyerInit();
@@ -83,7 +83,7 @@ namespace Template
             {
                 await handles[i];
             }
-            await TopPanelSingleUseHelper.Instance.Initialize("Prefabs/UI/Common/TopPanelBar/TopPanelContainer.prefab");
+            await TopPanelSingleUseHelper.Instance.Initialize("Prefabs/UI/TopPanelBar/TopPanelContainer.prefab");
             await iapTask;
             var audioController = await audioControllerLoadingHandle.WaitUntilDone();
             audioController.name = "AudioController";
