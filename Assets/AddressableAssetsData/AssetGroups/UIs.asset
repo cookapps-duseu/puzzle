@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fe1b01eb6e7b4dc1bccbd6d03edff31
+    m_Address: Prefabs/UI/ShopPackages
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 637534f9274944f28a13b3ebb3ec0c0f
     m_Address: Prefabs/UI/TopPanelBar
     m_ReadOnly: 0
