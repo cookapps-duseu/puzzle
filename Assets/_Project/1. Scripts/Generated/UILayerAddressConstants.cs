@@ -7,6 +7,11 @@ namespace RabbitDog.UIManagements
 {
     public static class UILayerAddressConstants
     {
-        // UILayer가 최상위에 붙은 Addressable Prefab이 없습니다.
+        public const string LoadingMain = "Prefabs/UI/Loading/LoadingMain.prefab"; // LoadingMain (Prefab: LoadingMain)
+        public const string LobbyMain = "Prefabs/UI/Lobby/LobbyMain.prefab"; // LobbyMain (Prefab: LobbyMain)
+        public const string PopupCommon = "Prefabs/UI/Popup/Common/PopupCommon.prefab"; // PopupCommon (Prefab: PopupCommon)
+        public const string PopupItemRewardEffect = "Prefabs/UI/Popup/Common/PopupItemRewardEffect.prefab"; // PopupItemRewardEffect (Prefab: PopupItemRewardEffect)
+        public const string TitleMain = "Prefabs/UI/Title/TitleMain.prefab"; // TitleMain (Prefab: TitleMain)
+        public const string TopPanelBar = "Prefabs/UI/TopPanelBar/TopPanelBar.prefab"; // TopPanelBar (Prefab: TopPanelBar)
     }
 }

@@ -29,9 +29,11 @@ MonoBehaviour:
         Version: 1.0.0
         UseAutoVersionCode: 1
         BaseVersionCode: 0
-        VersionCode: 5
+        VersionCode: 9
         Scenes: []
-        AddDefine: []
+        AddDefine:
+        - __DEV
+        - __SRD
         RemoveDefine: []
         Parameters: []
         EnableCodeObfuscator: 0
@@ -63,10 +65,12 @@ MonoBehaviour:
         Version: 1.0.0
         UseAutoVersionCode: 1
         BaseVersionCode: 0
-        VersionCode: 5
+        VersionCode: 9
         Scenes: []
         AddDefine: []
-        RemoveDefine: []
+        RemoveDefine:
+        - __DEV
+        - __SRD
         Parameters: []
         EnableCodeObfuscator: 0
         IsProduction: 1
@@ -97,9 +101,11 @@ MonoBehaviour:
         Version: 1.0.0
         UseAutoVersionCode: 1
         BaseVersionCode: 0
-        VersionCode: 5
+        VersionCode: 9
         Scenes: []
-        AddDefine: []
+        AddDefine:
+        - __DEV
+        - __SRD
         RemoveDefine: []
         Parameters: []
         EnableCodeObfuscator: 0
@@ -118,10 +124,12 @@ MonoBehaviour:
         Version: 1.0.0
         UseAutoVersionCode: 1
         BaseVersionCode: 0
-        VersionCode: 1
+        VersionCode: 9
         Scenes: []
         AddDefine: []
-        RemoveDefine: []
+        RemoveDefine:
+        - __DEV
+        - __SRD
         Parameters: []
         EnableCodeObfuscator: 0
         IsProduction: 1

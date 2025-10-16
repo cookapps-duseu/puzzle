@@ -21,7 +21,7 @@ namespace Template
         public int starCount;
     }
     
-    [RegisterUILayer(UILayerType.Cover, "UILayerAddressConstants.LobbyMain")]
+    [RegisterUILayer(UILayerType.Cover, UILayerAddressConstants.LobbyMain)]
     [RegisterScene("Lobby", "Scenes/Lobby.unity", typeof(LobbyMain))]
     public class LobbyMain : UILayer
     {

@@ -15,8 +15,33 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 40e9541de6f3441a58748ee0c6a629aa
   m_SerializeEntries:
+  - m_GUID: 149df28e8361e4e2ba1968d51a7a6e21
+    m_Address: Scenes/Title.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 228dc1095b4c24342a412b43ae96bc70
     m_Address: Data
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31011f48ce6ec425eaab1fa832c86ff7
+    m_Address: Scenes/Lobby.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31c01826b99fa4dc1a11a7035fac212a
+    m_Address: Scenes/InGame.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a3fe365d5af74ef78bc8acf2047e101
+    m_Address: Scenes/Loading.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad91923c94d9d41d185fed7e3d3c5d48
+    m_Address: Textures/NonAtlas
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
