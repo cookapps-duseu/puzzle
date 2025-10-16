@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0622877b78469a9ec12baaf40f5799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 3443694350492708380}
   sprites:
     m_keys: 0000000001000000
     m_values:
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0622877b78469a9ec12baaf40f5799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 170266210477760944}
   sprites:
     m_keys: 00000000c9000000ca000000cb000000
     m_values:
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc21924967fe4c50944f5cd2a7033329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 303294660623057077}
   materials:
     m_keys: 00000000c9000000ca000000cb000000
     m_values:
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0622877b78469a9ec12baaf40f5799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 5119785637687868481}
   sprites:
     m_keys: 0000000001000000
     m_values:

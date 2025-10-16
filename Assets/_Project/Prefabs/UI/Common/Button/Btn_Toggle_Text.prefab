@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e496e449b71643d1a22a7c054b3550d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 8792844173341732577}
   colors:
     m_keys: 0000000001000000
     m_values:

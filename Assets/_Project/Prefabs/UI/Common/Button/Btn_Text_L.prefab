@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0622877b78469a9ec12baaf40f5799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 5950951891483532503}
   sprites:
     m_keys: 0000000001000000
     m_values:
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc21924967fe4c50944f5cd2a7033329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 6220552014611561237}
   materials:
     m_keys: 0000000001000000
     m_values:
@@ -452,6 +452,10 @@ MonoBehaviour:
   isBlockDrag: 0
   useDefaultClickSound: 1
   defaultClickSoundType: 0
+  forceClickable: 0
+  swappers:
+  - {fileID: 5783213705922864887}
+  - {fileID: 5471501244404705001}
 --- !u!95 &6203115721803911545
 Animator:
   serializedVersion: 7

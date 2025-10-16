@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc21924967fe4c50944f5cd2a7033329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 6939050522993524552}
   materials:
     m_keys: 0000000001000000
     m_values:
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0622877b78469a9ec12baaf40f5799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 7156619789068421108}
   sprites:
     m_keys: 0000000001000000
     m_values:
@@ -416,6 +416,11 @@ MonoBehaviour:
   isBlockDrag: 0
   useDefaultClickSound: 1
   defaultClickSoundType: 0
+  forceClickable: 0
+  swappers:
+  - {fileID: 2450991039543018811}
+  - {fileID: 5653193788616275569}
+  - {fileID: 4543283692425064437}
 --- !u!95 &3983950996764123124
 Animator:
   serializedVersion: 7
@@ -686,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc21924967fe4c50944f5cd2a7033329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 7463797094301032502}
   materials:
     m_keys: 0000000001000000
     m_values:

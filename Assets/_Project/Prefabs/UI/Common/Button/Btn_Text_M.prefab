@@ -82,7 +82,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 3870288671238920807}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc21924967fe4c50944f5cd2a7033329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 1154604124790819527}
   materials:
     m_keys: 0000000001000000
     m_values:
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0622877b78469a9ec12baaf40f5799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 1495241787357801733}
   sprites:
     m_keys: 0000000001000000
     m_values:
