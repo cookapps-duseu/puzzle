@@ -229,7 +229,7 @@ namespace RabbitDog.WorldTouch
 
             // Always allocate cylinder and state for this touch
             var cyl = cylinderPool.Get();
-            cyl.SetHeight((transform.position - Vector3.zero).magnitude + 10f);
+            cyl.SetHeight(transform.position.magnitude + 10f);
             var rayCamera = GetMainCamera();
             SetCylinderPosition(cyl, touchPos, rayCamera);
             var state = new TouchState
@@ -245,7 +245,7 @@ namespace RabbitDog.WorldTouch
 
             // Try to determine initial listener
             var ray = rayCamera.ScreenPointToRay(touchPos);
-            if (!Physics.Raycast(ray, out var hit, rayCamera.transform.position.y + 10f, layerMask))
+            if (!Physics.Raycast(ray, out var hit, rayCamera.transform.position.magnitude + 10f, layerMask))
             {
                 return;
             }
@@ -283,7 +283,7 @@ namespace RabbitDog.WorldTouch
             var rayCamera = GetMainCamera();
             SetCylinderPosition(state.Cylinder, state.Pos, rayCamera);
             var ray = rayCamera.ScreenPointToRay(curPos);
-            if (!Physics.Raycast(ray, out var hit, rayCamera.transform.position.y + 10f, layerMask))
+            if (!Physics.Raycast(ray, out var hit, rayCamera.transform.position.magnitude + 10f, layerMask))
             {
                 state.Listener?.TouchCanceled();
                 state.Listener = null;
@@ -296,7 +296,7 @@ namespace RabbitDog.WorldTouch
                 if (state.Cylinder == null)
                 {
                     state.Cylinder = cylinderPool.Get();
-                    state.Cylinder.SetHeight((transform.position - Vector3.zero).magnitude + 10f);
+                    state.Cylinder.SetHeight(transform.position.magnitude + 10f);
                 }
                 SetCylinderPosition(state.Cylinder, state.Pos, rayCamera);
                 hitListener = state.Cylinder.GetMostNearestObject();
@@ -346,7 +346,7 @@ namespace RabbitDog.WorldTouch
             var rayCamera = GetMainCamera();
             SetCylinderPosition(state.Cylinder, state.Pos, rayCamera);
             var ray = rayCamera.ScreenPointToRay(touchPos);
-            if (!Physics.Raycast(ray, out var hit, rayCamera.transform.position.y + 10f, layerMask))
+            if (!Physics.Raycast(ray, out var hit, rayCamera.transform.position.magnitude + 10f, layerMask))
             {
                 state.Listener?.TouchCanceled();
                 state.Listener = null;
