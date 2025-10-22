@@ -18,6 +18,8 @@ namespace RabbitDog.UIExtensions
         public int ActivatePageIndex => activatePageIdx;
         private int pointerId;
         private Coroutine goToRoutine;
+        private float pageIndicatorWidth;
+        private float pageIndicatorMoveSpace;
         
         public T GetPage<T>() where T : LobbyPageBase
         {
@@ -35,6 +37,8 @@ namespace RabbitDog.UIExtensions
 
         public void Initialize()
         {
+            pageIndicatorWidth = pageIndicator.rect.width;
+            pageIndicatorMoveSpace = pageIndicator.parent.GetComponent<RectTransform>().rect.width - pageIndicatorWidth;
             pointerId = -1;
             InitializePages();
             GoTo(pages.Length / 2, false);
@@ -153,8 +157,10 @@ namespace RabbitDog.UIExtensions
 
             float contentPosRange = content.rect.width - pages[0].CachedRectTr.rect.width * 0.5f - pages[^1].CachedRectTr.rect.width * 0.5f;
             float xRatio = -contentPos.x / contentPosRange;
-            pageIndicator.anchorMin = new Vector2(xRatio, 0f);
-            pageIndicator.anchorMax = new Vector2(xRatio, 1f);
+            var diffPosX = pageIndicatorMoveSpace * xRatio;
+            var pos = pageIndicator.anchoredPosition;
+            pos.x = diffPosX - pageIndicatorMoveSpace * 0.5f;
+            pageIndicator.anchoredPosition = pos;
         }
 
         public void OnClickBottomMenu(int toggleIdx)
