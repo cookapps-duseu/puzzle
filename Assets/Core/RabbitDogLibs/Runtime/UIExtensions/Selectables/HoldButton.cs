@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace RabbitDog.UIExtensions
 {
-    [AddComponentMenu("UI/RabbitDog Hold Button")]
+    [AddComponentMenu("UI/RD Hold Button")]
     public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private float accelerationFactor = 3.0f;

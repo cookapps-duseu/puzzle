@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 namespace RabbitDog.UIExtensions
 {
-    [AddComponentMenu("UI/RabbitDog Toggle Group")]
+    [AddComponentMenu("UI/RD Toggle Group")]
     [DisallowMultipleComponent]
     public class RDToggleGroup : UIBehaviour
     {

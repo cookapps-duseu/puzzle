@@ -16,7 +16,7 @@ namespace RabbitDog.UIExtensions
         Custom_2,
     }
 
-    [AddComponentMenu("UI/RabbitDog Button")]
+    [AddComponentMenu("UI/RDButton")]
     public class RDButton : Button
     {
         [SerializeField] private bool isBlockDrag = false;

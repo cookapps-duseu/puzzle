@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace RabbitDog.UIExtensions
 {
     [RequireComponent(typeof(Button))]
-    [AddComponentMenu("UI/RabbitDog Simple Close Button")]
+    [AddComponentMenu("UI/RD Simple Close Button")]
     public class SimpleCloseButton : MonoBehaviour
     {
         private RDButton button;

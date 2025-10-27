@@ -12,7 +12,7 @@ namespace RabbitDog.UIExtensions
     /// <summary>
     /// Simple toggle -- something that has an 'on' and 'off' states: checkbox, toggle button, radio button, etc.
     /// </summary>
-    [AddComponentMenu("UI/RabbitDog Toggle")]
+    [AddComponentMenu("UI/RDToggle")]
     [RequireComponent(typeof(RectTransform))]
     public class RDToggle : Selectable, IPointerClickHandler, ISubmitHandler, ICanvasElement
     {

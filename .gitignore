@@ -2,6 +2,13 @@
 # OS: macOS
 # ==========================================
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # ==========================================
 # JetBrains Rider / IntelliJ / ReSharper
@@ -78,3 +85,8 @@ ExportedObj/
 *.apk
 *.unitypackage
 
+Assets/FR2_Cache.asset*
+.utmp
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
