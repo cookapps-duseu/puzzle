@@ -1,4 +1,4 @@
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public sealed partial class SceneUILayerManager : ISelectableBlocker
     {

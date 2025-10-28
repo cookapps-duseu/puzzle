@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace RabbitDog
+namespace CookApps
 {
     public class DestroyNotifier : MonoBehaviour
     {

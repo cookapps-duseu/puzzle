@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     public static class GameObjectPoolManager
     {

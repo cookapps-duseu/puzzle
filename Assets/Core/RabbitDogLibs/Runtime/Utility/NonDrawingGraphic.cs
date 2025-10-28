@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     /// A concrete subclass of the Unity UI `Graphic` class that just skips drawing.
     /// Useful for providing a raycast target without actually drawing anything.

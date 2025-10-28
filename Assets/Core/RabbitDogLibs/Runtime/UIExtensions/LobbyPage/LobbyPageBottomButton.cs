@@ -1,9 +1,9 @@
-using RabbitDog;
+using CookApps;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     public class LobbyPageBottomButton : CachedMonoBehaviour
     {

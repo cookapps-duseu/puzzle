@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace RabbitDog
+namespace CookApps
 {
     public class SimpleTextMaterialSwapper : SimpleTextBaseSwapper
     {

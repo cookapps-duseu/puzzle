@@ -1,8 +1,8 @@
 using System;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public class SceneLoadingEventReceiver
     {

@@ -1,6 +1,6 @@
-using RabbitDog;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;

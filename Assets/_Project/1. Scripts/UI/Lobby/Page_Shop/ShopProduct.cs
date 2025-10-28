@@ -1,6 +1,6 @@
 using CookApps.Iap.Result;
-using RabbitDog;
-using RabbitDog.Utility;
+using CookApps;
+using CookApps.Utility;
 using UnityEngine;
 
 namespace Template

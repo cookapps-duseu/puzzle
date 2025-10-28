@@ -2,9 +2,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
-    [CustomEditor(typeof(RabbitDog.SimpleImageBaseSwapper), true)]
+    [CustomEditor(typeof(SimpleImageBaseSwapper), true)]
     public class SimpleImageBaseSwapperEditor : UnityEditor.Editor
     {
         private SerializedProperty imageProp;

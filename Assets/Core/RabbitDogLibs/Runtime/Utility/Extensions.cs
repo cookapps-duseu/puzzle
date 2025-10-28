@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Random = System.Random;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     public static class Vector2Extension
     {

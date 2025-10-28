@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog
+namespace CookApps
 {
     [RequireComponent(typeof(ParticleSystem))]
     public class SimpleParticleColorSwapper : SimpleSwapper

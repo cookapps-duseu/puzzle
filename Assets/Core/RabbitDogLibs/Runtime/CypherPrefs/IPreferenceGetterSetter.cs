@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog.CypherPrefs
+namespace CookApps.CypherPrefs
 {
     public interface IPreferenceGetterSetter
     {

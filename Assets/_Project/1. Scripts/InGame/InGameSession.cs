@@ -1,5 +1,5 @@
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using UnityEngine;
 
 namespace Template

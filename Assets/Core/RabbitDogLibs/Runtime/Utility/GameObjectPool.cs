@@ -4,7 +4,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     public abstract class GameObjectPool
     {

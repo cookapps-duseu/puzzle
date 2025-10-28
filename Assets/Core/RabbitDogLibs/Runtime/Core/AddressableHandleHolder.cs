@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace RabbitDog
+namespace CookApps
 {
     public readonly struct LoadAssetHandleHolder<T> : IDisposable where T : UnityEngine.Object
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MemoryPack;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 
 namespace Template

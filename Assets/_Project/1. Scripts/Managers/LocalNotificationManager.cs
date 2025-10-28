@@ -1,5 +1,5 @@
 using System;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using Unity.Notifications;
 using UnityEngine;
 

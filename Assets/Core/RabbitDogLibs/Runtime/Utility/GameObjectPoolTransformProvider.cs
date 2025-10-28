@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     public class GameObjectPoolTransformProvider : SingletonMonoBehaviour<GameObjectPoolTransformProvider>
     {

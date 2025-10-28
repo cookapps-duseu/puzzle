@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     [RequireComponent(typeof(RectTransform))]
     public class SafeArea : MonoBehaviour

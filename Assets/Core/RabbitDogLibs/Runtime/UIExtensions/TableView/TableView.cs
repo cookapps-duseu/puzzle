@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     [RequireComponent(typeof(RectTransform))]
     public class TableView : ScrollRectEx

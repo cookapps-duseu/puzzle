@@ -1,4 +1,4 @@
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -6,7 +6,7 @@ using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets;
 using UnityEngine.AddressableAssets;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
 
 [InitializeOnLoad]

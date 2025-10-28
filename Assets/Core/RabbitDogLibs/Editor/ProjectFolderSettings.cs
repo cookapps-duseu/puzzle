@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
     [CreateAssetMenu(fileName = "ProjectFolderSettings", menuName = "RabbitDog/Project Folder Settings", order = 0)]
     public sealed class ProjectFolderSettings : ScriptableObject

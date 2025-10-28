@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     [ExecuteAlways]
-    public class RDSlider : UIBehaviour
+    public class CASlider : UIBehaviour
     {
         /// <summary>
         /// Setting that indicates one of four directions.

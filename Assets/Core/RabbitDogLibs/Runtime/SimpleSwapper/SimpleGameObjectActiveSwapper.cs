@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RabbitDog
+namespace CookApps
 {
     public class SimpleGameObjectActiveSwapper : SimpleSwapper
     {

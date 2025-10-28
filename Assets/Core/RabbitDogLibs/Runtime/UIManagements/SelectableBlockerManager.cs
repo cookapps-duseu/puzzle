@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public class SelectableBlockerManager : Singleton<SelectableBlockerManager>
     {

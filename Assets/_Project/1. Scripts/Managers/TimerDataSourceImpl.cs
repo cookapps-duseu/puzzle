@@ -1,7 +1,7 @@
 using System;
 using MemoryPack;
-using RabbitDog.CypherPrefs;
-using RabbitDog.Utility;
+using CookApps.CypherPrefs;
+using CookApps.Utility;
 
 namespace Template
 {

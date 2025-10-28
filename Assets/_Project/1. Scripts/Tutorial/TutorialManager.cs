@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CookApps.Inspector;
-using RabbitDog;
+using CookApps;
 using UnityEngine;
 
 namespace Template

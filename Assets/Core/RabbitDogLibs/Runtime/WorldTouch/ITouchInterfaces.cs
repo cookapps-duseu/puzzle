@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog.WorldTouch
+namespace CookApps.WorldTouch
 {
     public interface ITouchBlocker
     {

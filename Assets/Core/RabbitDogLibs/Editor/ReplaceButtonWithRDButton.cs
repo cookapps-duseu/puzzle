@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.UIExtensions.Editor
+namespace CookApps.UIExtensions.Editor
 {
     public static class ConvertButtonToRDButton
     {
@@ -41,7 +41,7 @@ namespace RabbitDog.UIExtensions.Editor
 
         private static void Convert(Button button)
         {
-            var rdScript = FindMonoScript(typeof(RDButton));
+            var rdScript = FindMonoScript(typeof(CAButton));
             if (rdScript == null)
             {
                 Debug.LogError("RDButton 스크립트를 찾을 수 없습니다. RDButton.cs가 프로젝트에 있고 컴파일이 끝났는지 확인하세요.");

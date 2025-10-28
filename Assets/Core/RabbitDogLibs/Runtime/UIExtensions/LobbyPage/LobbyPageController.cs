@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     public class LobbyPageController : CachedMonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {

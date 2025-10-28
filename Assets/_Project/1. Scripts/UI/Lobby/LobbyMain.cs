@@ -1,7 +1,7 @@
 using System;
-using RabbitDog.UIExtensions;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIExtensions;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;

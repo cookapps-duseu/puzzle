@@ -1,12 +1,12 @@
 ﻿using System;
-using RabbitDog.UIManagements;
+using CookApps.UIManagements;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
-    [AddComponentMenu("UI/RD Hold Button")]
+    [AddComponentMenu("UI/Hold Button")]
     public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private float accelerationFactor = 3.0f;

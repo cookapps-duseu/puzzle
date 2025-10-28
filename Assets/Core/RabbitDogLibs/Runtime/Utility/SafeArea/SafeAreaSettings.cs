@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     // Intentionally no CreateAssetMenu to hide from the Create menu.
     public class SafeAreaSettings : ScriptableObject

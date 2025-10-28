@@ -1,4 +1,4 @@
-using RabbitDog.UIExtensions;
+using CookApps.UIExtensions;
 using UnityEngine;
 using UnityEngine.Pool;
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     #region enum
     public enum UILayerTransition

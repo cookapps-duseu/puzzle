@@ -1,9 +1,9 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
-    [CustomEditor(typeof(RabbitDog.SimpleSpriteBaseSwapper), true)]
+    [CustomEditor(typeof(SimpleSpriteBaseSwapper), true)]
     public class SimpleSpriteBaseSwapperEditor : UnityEditor.Editor
     {
         private SerializedProperty spriteRendererProp;

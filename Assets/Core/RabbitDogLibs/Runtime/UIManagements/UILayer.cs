@@ -1,9 +1,9 @@
 using System;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public abstract class UILayer : CachedMonoBehaviour
     {

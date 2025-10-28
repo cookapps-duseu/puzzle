@@ -2,9 +2,9 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
-    [CustomEditor(typeof(RabbitDog.SimpleTextBaseSwapper), true)]
+    [CustomEditor(typeof(SimpleTextBaseSwapper), true)]
     public class SimpleTextBaseSwapperEditor : UnityEditor.Editor
     {
         private SerializedProperty textProp;

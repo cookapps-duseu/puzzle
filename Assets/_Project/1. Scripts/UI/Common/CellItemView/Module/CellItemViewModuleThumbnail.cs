@@ -1,5 +1,5 @@
-using RabbitDog;
-using RabbitDog.Utility;
+using CookApps;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 

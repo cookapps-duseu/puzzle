@@ -2,7 +2,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog
+namespace CookApps
 {
     public class ImageFromAtlas : Image
     {

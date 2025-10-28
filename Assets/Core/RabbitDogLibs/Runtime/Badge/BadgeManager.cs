@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using RabbitDog.CypherPrefs;
-using RabbitDog.Utility;
+using CookApps.CypherPrefs;
+using CookApps.Utility;
 using UnityEngine.Pool;
 
-namespace RabbitDog.BadgeSystem
+namespace CookApps.BadgeSystem
 {
     internal class BadgePathPref : Preference<int, List<string>>
     {

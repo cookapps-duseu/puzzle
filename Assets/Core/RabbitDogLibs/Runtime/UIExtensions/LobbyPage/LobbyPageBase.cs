@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     public abstract class LobbyPageBase : CachedMonoBehaviour
     {

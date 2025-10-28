@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Cysharp.Text;
 using UnityEngine;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using TMPro;
 using Random = UnityEngine.Random;
 

@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public sealed partial class SceneUILayerManager
     {

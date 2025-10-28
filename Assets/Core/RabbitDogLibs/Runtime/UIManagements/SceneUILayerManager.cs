@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RabbitDog.UIExtensions;
-using RabbitDog.Utility;
+using CookApps.UIExtensions;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public sealed partial class SceneUILayerManager : SingletonMonoBehaviour<SceneUILayerManager>
     {
@@ -758,7 +758,7 @@ namespace RabbitDog.UIManagements
             dimLayerTr.anchorMin = Vector2.zero;
             dimLayerTr.sizeDelta = Vector2.zero;
 
-            var btn = dimLayerGo.AddComponent<RDButton>();
+            var btn = dimLayerGo.AddComponent<CAButton>();
             btn.onClick = new Button.ButtonClickedEvent();
             btn.transition = Selectable.Transition.None;
             btn.onClick.AddListener(OnClickDimLayer);

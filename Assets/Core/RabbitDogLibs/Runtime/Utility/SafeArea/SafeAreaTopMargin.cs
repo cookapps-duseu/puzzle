@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     [RequireComponent(typeof(RectTransform))]
     public class SafeAreaTopMargin : MonoBehaviour

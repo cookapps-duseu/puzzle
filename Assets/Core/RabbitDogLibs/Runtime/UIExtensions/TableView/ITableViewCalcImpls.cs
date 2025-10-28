@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     #region Horizontal
     internal abstract class HorizontalTableViewCalcImpl : ITableViewCalcImpl

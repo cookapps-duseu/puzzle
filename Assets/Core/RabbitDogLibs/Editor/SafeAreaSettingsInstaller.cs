@@ -1,11 +1,11 @@
+using CookApps.Utility;
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
-using RabbitDog.Utility;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
     [InitializeOnLoad]
     internal static class SafeAreaSettingsInstaller

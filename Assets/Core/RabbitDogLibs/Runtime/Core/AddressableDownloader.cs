@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace RabbitDog
+namespace CookApps
 {
     public static class AddressableDownloader
     {

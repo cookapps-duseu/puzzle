@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog
+namespace CookApps
 {
     public class SimpleImageMaterialSwapper : SimpleImageBaseSwapper
     {

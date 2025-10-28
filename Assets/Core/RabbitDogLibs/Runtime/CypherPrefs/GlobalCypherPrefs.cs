@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RabbitDog.CypherPrefs
+namespace CookApps.CypherPrefs
 {
     public static class GlobalCypherPrefs
     {

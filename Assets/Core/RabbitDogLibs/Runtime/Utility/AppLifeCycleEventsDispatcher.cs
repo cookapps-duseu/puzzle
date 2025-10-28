@@ -1,6 +1,6 @@
 using System;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     public class AppLifeCycleEventsDispatcher : SingletonMonoBehaviour<AppLifeCycleEventsDispatcher>
     {

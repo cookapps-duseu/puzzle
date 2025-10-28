@@ -5,15 +5,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
-    [AddComponentMenu("UI/RD Toggle Group")]
+    [AddComponentMenu("UI/CA Toggle Group")]
     [DisallowMultipleComponent]
-    public class RDToggleGroup : UIBehaviour
+    public class CAToggleGroup : UIBehaviour
     {
         public bool allowSwitchOff;
 
-        private List<RDToggle> m_Toggles = new ();
+        private List<CAToggle> m_Toggles = new ();
 
         [Serializable]
         public class ToggleGroupEvent : UnityEvent<bool>
@@ -23,13 +23,13 @@ namespace RabbitDog.UIExtensions
         public ToggleGroupEvent onToggleGroupChanged = new ();
         public ToggleGroupEvent onToggleGroupToggleChanged = new ();
 
-        public RDToggle selectedToggle;
+        public CAToggle selectedToggle;
 
-        protected RDToggleGroup()
+        protected CAToggleGroup()
         {
         }
 
-        private void ValidateToggleIsInGroup(RDToggle toggle)
+        private void ValidateToggleIsInGroup(CAToggle toggle)
         {
             if (toggle == null || !m_Toggles.Contains(toggle))
             {
@@ -37,7 +37,7 @@ namespace RabbitDog.UIExtensions
             }
         }
 
-        public void NotifyToggleOn(RDToggle toggle)
+        public void NotifyToggleOn(CAToggle toggle)
         {
             ValidateToggleIsInGroup(toggle);
 
@@ -56,7 +56,7 @@ namespace RabbitDog.UIExtensions
             onToggleGroupChanged.Invoke(AnyTogglesOn());
         }
 
-        public void UnregisterToggle(RDToggle toggle)
+        public void UnregisterToggle(CAToggle toggle)
         {
             if (m_Toggles.Contains(toggle))
             {
@@ -70,7 +70,7 @@ namespace RabbitDog.UIExtensions
             onToggleGroupToggleChanged.Invoke(isOn);
         }
 
-        public void RegisterToggle(RDToggle toggle)
+        public void RegisterToggle(CAToggle toggle)
         {
             if (!m_Toggles.Contains(toggle))
             {
@@ -84,7 +84,7 @@ namespace RabbitDog.UIExtensions
             return m_Toggles.Find(x => x.isOn) != null;
         }
 
-        public IEnumerable<RDToggle> ActiveToggles()
+        public IEnumerable<CAToggle> ActiveToggles()
         {
             return m_Toggles.Where(x => x.isOn);
         }

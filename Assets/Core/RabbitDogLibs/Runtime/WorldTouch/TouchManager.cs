@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.Pool;
 
-namespace RabbitDog.WorldTouch
+namespace CookApps.WorldTouch
 {
     public class TouchManager : SingletonMonoBehaviour<TouchManager>
     {

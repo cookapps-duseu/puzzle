@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using RabbitDog.UIManagements;
+using CookApps.UIManagements;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     public enum DefaultClickSoundType
     {
@@ -16,8 +16,8 @@ namespace RabbitDog.UIExtensions
         Custom_2,
     }
 
-    [AddComponentMenu("UI/RDButton")]
-    public class RDButton : Button
+    [AddComponentMenu("UI/CAButton")]
+    public class CAButton : Button
     {
         [SerializeField] private bool isBlockDrag = false;
         [SerializeField] private bool useDefaultClickSound = true;

@@ -1,11 +1,10 @@
 using System.Collections;
-using RabbitDog.UIExtensions;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIExtensions;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-
 
 namespace Template
 {
@@ -35,7 +34,7 @@ namespace Template
             SceneTransition.Create<SceneTransition_FadeInOut>();
             await SceneTransition.FadeInAsync();
             SceneUILayerManager.Instance.ChangeScene("Title");
-            RDButton.OnPlayDefaultClickSound += (type) =>
+            CAButton.OnPlayDefaultClickSound += (type) =>
             {
                 if (type == DefaultClickSoundType.Basic)
                 {

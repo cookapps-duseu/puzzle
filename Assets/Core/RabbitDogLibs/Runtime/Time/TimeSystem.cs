@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     public enum ServerTimeState
     {

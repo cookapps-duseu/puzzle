@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.U2D;
 
-namespace RabbitDog
+namespace CookApps
 {
     [CreateAssetMenu(fileName = "AtlasManager", menuName = "ScriptableObjects/AtlasManager", order = 1)]
     public class AtlasManagerScriptableObject : ScriptableObject

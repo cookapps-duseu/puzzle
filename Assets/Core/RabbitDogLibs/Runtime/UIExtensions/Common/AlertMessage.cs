@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     public class AlertMessage : CachedMonoBehaviour
     {

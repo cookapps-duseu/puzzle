@@ -1,10 +1,10 @@
 using System;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     [Serializable]
     public class InstantParticle

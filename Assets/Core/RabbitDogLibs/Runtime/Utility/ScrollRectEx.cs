@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
 
-namespace RabbitDog.Utility
+namespace CookApps.Utility
 {
     public class ScrollRectEx : ScrollRect
     {

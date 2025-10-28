@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
     [CustomEditor(typeof(AtlasManagerScriptableObject))]
     public class AtlasManagerScriptableObjectEditor : UnityEditor.Editor

@@ -1,6 +1,6 @@
 using System;
 using MemoryPack;
-using RabbitDog.CypherPrefs;
+using CookApps.CypherPrefs;
 using UnityEngine;
 
 namespace Template

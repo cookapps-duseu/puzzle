@@ -1,18 +1,18 @@
-using RabbitDog.UIManagements;
+using CookApps.UIManagements;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     [RequireComponent(typeof(Button))]
-    [AddComponentMenu("UI/RD Simple Close Button")]
+    [AddComponentMenu("UI/Simple Close Button")]
     public class SimpleCloseButton : MonoBehaviour
     {
-        private RDButton button;
+        private CAButton button;
         
         private void Awake()
         {
-            button = GetComponent<RDButton>();
+            button = GetComponent<CAButton>();
             button.onClick.AddListener(OnClickClose);
         }
         

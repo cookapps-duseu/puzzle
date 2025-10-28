@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Diagnostics;
 
-namespace RabbitDog
+namespace CookApps
 {
 	public static class RDDebug
 	{

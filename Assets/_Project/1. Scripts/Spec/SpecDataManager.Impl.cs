@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using RabbitDog;
+using CookApps;
 
 namespace Template
 {

@@ -1,10 +1,10 @@
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     public class AlertMessageManager : SingletonMonoBehaviour<AlertMessageManager>
     {

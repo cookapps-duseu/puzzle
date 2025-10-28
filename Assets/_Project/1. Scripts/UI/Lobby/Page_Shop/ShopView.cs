@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using CookApps.Iap.Result;
-using RabbitDog.UIExtensions;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIExtensions;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.Pool;
 

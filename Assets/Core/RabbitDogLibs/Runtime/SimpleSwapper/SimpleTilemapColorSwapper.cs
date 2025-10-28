@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace RabbitDog
+namespace CookApps
 {
     [RequireComponent(typeof(Tilemap))]
     public class SimpleTilemapColorSwapper : SimpleSwapper

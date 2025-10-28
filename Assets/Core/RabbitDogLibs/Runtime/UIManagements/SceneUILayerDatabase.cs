@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public abstract class SceneUILayerDatabase
     {

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace RabbitDog.Utility.Editor
+namespace CookApps.Utility.Editor
 {
     [CustomEditor(typeof(NonDrawingGraphic))]
     public class NonDrawingGraphicEditor : UnityEditor.Editor

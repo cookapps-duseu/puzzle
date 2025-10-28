@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using RabbitDog.UIExtensions;
+using CookApps.UIExtensions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;

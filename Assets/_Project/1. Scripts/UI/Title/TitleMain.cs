@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using RabbitDog;
-using RabbitDog.UIExtensions;
+using CookApps;
+using CookApps.UIExtensions;
 using UnityEngine;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Purchasing;
 

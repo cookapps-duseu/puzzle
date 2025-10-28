@@ -1,5 +1,5 @@
 using System;
-using RabbitDog.UIManagements;
+using CookApps.UIManagements;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,14 +7,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace RabbitDog.UIExtensions
+namespace CookApps.UIExtensions
 {
     /// <summary>
     /// Simple toggle -- something that has an 'on' and 'off' states: checkbox, toggle button, radio button, etc.
     /// </summary>
     [AddComponentMenu("UI/RDToggle")]
     [RequireComponent(typeof(RectTransform))]
-    public class RDToggle : Selectable, IPointerClickHandler, ISubmitHandler, ICanvasElement
+    public class CAToggle : Selectable, IPointerClickHandler, ISubmitHandler, ICanvasElement
     {
         public enum ToggleTransition
         {
@@ -28,7 +28,7 @@ namespace RabbitDog.UIExtensions
         }
 
         [Serializable]
-        public class ToggleEventObject : UnityEvent<RDToggle>
+        public class ToggleEventObject : UnityEvent<CAToggle>
         {
         }
 
@@ -47,9 +47,9 @@ namespace RabbitDog.UIExtensions
         public CanvasGroup inactivateCanvasGroup;
 
         // group that this toggle can belong to
-        [SerializeField] private RDToggleGroup m_Group;
+        [SerializeField] private CAToggleGroup m_Group;
 
-        public RDToggleGroup group
+        public CAToggleGroup group
         {
             get { return m_Group; }
             set
@@ -83,7 +83,7 @@ namespace RabbitDog.UIExtensions
         [FormerlySerializedAs("m_IsActive")] [Tooltip("Is the toggle currently on or off?")] [SerializeField]
         private bool m_IsOn;
 
-        protected RDToggle()
+        protected CAToggle()
         {
         }
 
@@ -151,9 +151,9 @@ namespace RabbitDog.UIExtensions
             base.OnDidApplyAnimationProperties();
         }
 
-        private void SetToggleGroup(RDToggleGroup newGroup, bool setMemberValue)
+        private void SetToggleGroup(CAToggleGroup newGroup, bool setMemberValue)
         {
-            RDToggleGroup oldGroup = m_Group;
+            CAToggleGroup oldGroup = m_Group;
 
             // Sometimes IsActive returns false in OnDisable so don't check for it.
             // Rather remove the toggle too often than too little.

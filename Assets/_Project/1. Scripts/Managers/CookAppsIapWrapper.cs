@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CookApps.Iap;
 using CookApps.Iap.Result;
 using Newtonsoft.Json.Linq;
-using RabbitDog;
+using CookApps;
 using UnityEngine;
 using UnityEngine.Purchasing;
 

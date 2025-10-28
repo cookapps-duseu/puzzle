@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
-using RabbitDog.UIManagements;
-using RabbitDog.WorldTouch;
+using CookApps.UIManagements;
+using CookApps.WorldTouch;
 using UnityEngine;
 
 namespace Template

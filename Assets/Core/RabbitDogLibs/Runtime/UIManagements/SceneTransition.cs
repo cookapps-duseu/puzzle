@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public static class SceneTransition
     {

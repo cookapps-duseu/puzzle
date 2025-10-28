@@ -10,7 +10,7 @@ using Unity.Plastic.Newtonsoft.Json;
 #endif
 using UnityEngine;
 
-namespace RabbitDog.CypherPrefs
+namespace CookApps.CypherPrefs
 {
     public abstract class Preference
     {

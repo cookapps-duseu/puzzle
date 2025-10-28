@@ -2,10 +2,10 @@ using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 
-namespace RabbitDog.UIExtensions.Editor
+namespace CookApps.UIExtensions.Editor
 {
-    [CustomEditor(typeof(RDButton))]
-    public class RDButtonEditor : ButtonEditor
+    [CustomEditor(typeof(CAButton))]
+    public class CAButtonEditor : ButtonEditor
     {
         private SerializedProperty isBlockDragProperty;
         private SerializedProperty useDefaultClickSoundProperty;

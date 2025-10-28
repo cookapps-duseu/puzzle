@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog
+namespace CookApps
 {
     public class SimpleSpriteColorSwapper : SimpleSpriteBaseSwapper
     {

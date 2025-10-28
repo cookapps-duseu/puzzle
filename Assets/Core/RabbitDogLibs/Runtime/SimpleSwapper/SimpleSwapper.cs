@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog
+namespace CookApps
 {
     public enum SimpleSwapType
     {

@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEditor.UI;
 
-namespace RabbitDog.UIExtensions.Editor
+namespace CookApps.UIExtensions.Editor
 {
     [CustomEditor(typeof(TableView), true)]
     [CanEditMultipleObjects]

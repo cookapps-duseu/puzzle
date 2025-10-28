@@ -1,7 +1,7 @@
 using System;
-using RabbitDog;
-using RabbitDog.UIExtensions;
-using RabbitDog.Utility;
+using CookApps;
+using CookApps.UIExtensions;
+using CookApps.Utility;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

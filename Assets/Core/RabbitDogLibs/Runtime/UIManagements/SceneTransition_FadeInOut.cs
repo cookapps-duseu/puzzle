@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public class SceneTransition_FadeInOut : SceneTransitionBase
     {

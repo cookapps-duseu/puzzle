@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RabbitDog.BadgeSystem
+namespace CookApps.BadgeSystem
 {
     public class Badge : CachedMonoBehaviour
     {

@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using RabbitDog.UIManagements;
+using CookApps.UIManagements;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
 
-namespace RabbitDog.Editor
+namespace CookApps.Editor
 {
     [InitializeOnLoad]
     internal static class UILayerAddressConstantsGenerator

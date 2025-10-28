@@ -1,5 +1,5 @@
 using System;
-using RabbitDog.UIExtensions;
+using CookApps.UIExtensions;
 using UnityEngine;
 
 namespace Template
@@ -8,7 +8,7 @@ namespace Template
     {
         [SerializeField] private bool canClick = true;
         [SerializeField] private CellItemViewModuleBase[] modules;
-        [SerializeField] private RDButton button;
+        [SerializeField] private CAButton button;
 
         public IReward RewardData { get; private set; }
 

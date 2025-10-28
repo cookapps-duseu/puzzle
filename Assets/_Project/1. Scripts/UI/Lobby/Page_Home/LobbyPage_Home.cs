@@ -1,9 +1,9 @@
 using System;
 using System.Threading;
 using NUnit.Framework.Internal;
-using RabbitDog.UIExtensions;
-using RabbitDog.UIManagements;
-using RabbitDog.Utility;
+using CookApps.UIExtensions;
+using CookApps.UIManagements;
+using CookApps.Utility;
 using TMPro;
 using UnityEngine;
 

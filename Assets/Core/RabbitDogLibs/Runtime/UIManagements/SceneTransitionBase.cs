@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public abstract class SceneTransitionBase : CachedMonoBehaviour
     {

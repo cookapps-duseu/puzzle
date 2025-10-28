@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.CompilerServices;
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public class UILayerExitTask
     {

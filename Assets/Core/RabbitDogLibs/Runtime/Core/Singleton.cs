@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace RabbitDog
+namespace CookApps
 {
     /// <summary>
     /// 싱글톤

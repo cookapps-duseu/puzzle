@@ -1,6 +1,6 @@
 using System;
 using System.Threading;
-using RabbitDog.Utility;
+using CookApps.Utility;
 using UnityEngine;
 
 public abstract class ThrottleActionBase
