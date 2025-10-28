@@ -13,11 +13,11 @@ namespace CookApps.Editor
     [InitializeOnLoad]
     internal static class UILayerAddressConstantsGenerator
     {
-        [MenuItem("Tools/RabbitDog/Generate UI Layer Address Constants", priority = 2100)]
+        [MenuItem("Tools/CookApps/Generate UI Layer Address Constants", priority = 2100)]
         private static void RunFromMenu()
         {
             Generate();
-            Debug.Log("RabbitDog: Regenerated UI Layer Address constants.");
+            Debug.Log("CookApps: Regenerated UI Layer Address constants.");
         }
 
         private const string GeneratedFolderName = "Generated";
@@ -241,7 +241,7 @@ namespace CookApps.Editor
 
         private static string SanitizeNamespace(string value)
         {
-            const string DefaultNamespace = "RabbitDog.UIManagements";
+            const string DefaultNamespace = "CookApps.UIManagements";
 
             if (string.IsNullOrWhiteSpace(value)) return DefaultNamespace;
 

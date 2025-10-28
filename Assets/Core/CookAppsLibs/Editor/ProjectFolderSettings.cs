@@ -4,20 +4,20 @@ using UnityEngine;
 
 namespace CookApps.Editor
 {
-    [CreateAssetMenu(fileName = "ProjectFolderSettings", menuName = "RabbitDog/Project Folder Settings", order = 0)]
+    [CreateAssetMenu(fileName = "ProjectFolderSettings", menuName = "CookApps/Project Folder Settings", order = 0)]
     public sealed class ProjectFolderSettings : ScriptableObject
     {
         [SerializeField] private string rootFolder = "Assets/_Project";
         [SerializeField] private string dataFolderName = "Data";
         [SerializeField] private string scriptsFolderName = "Scripts";
-        [SerializeField] private string generatedNamespace = "RabbitDog.UIManagements";
+        [SerializeField] private string generatedNamespace = "CookApps.UIManagements";
 
         public string RootFolder => SanitizeAssetPath(rootFolder);
         public string DataFolderName => dataFolderName;
         public string DataFolderPath => CombinePaths(RootFolder, DataFolderName);
         public string ScriptsFolderName => scriptsFolderName;
         public string ScriptsFolderPath => CombinePaths(RootFolder, scriptsFolderName);
-        public string GeneratedNamespace => string.IsNullOrWhiteSpace(generatedNamespace) ? "RabbitDog.UIManagements" : generatedNamespace.Trim();
+        public string GeneratedNamespace => string.IsNullOrWhiteSpace(generatedNamespace) ? "CookApps.UIManagements" : generatedNamespace.Trim();
 
         private static string CombinePaths(string left, string right)
         {
@@ -58,7 +58,7 @@ namespace CookApps.Editor
             cachedSettings = ScriptableObject.CreateInstance<ProjectFolderSettings>();
             AssetDatabase.CreateAsset(cachedSettings, DefaultAssetPath);
             AssetDatabase.SaveAssets();
-            Debug.Log($"RabbitDog: Created default ProjectFolderSettings at '{DefaultAssetPath}'.");
+            Debug.Log($"CookApps: Created default ProjectFolderSettings at '{DefaultAssetPath}'.");
             return cachedSettings;
         }
 

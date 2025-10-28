@@ -17,7 +17,7 @@ namespace CookApps.UIExtensions.Editor
         }
 
         // 선택 영역 일괄 변환
-        [MenuItem("Tools/RabbitDog/Convert Buttons in Selection")]
+        [MenuItem("Tools/CookApps/Convert Buttons in Selection")]
         private static void ConvertInSelection()
         {
             var targets = Selection.gameObjects?

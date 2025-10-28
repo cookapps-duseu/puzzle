@@ -62,7 +62,7 @@ public class AtlasManagerImportProcessor : AssetPostprocessor
                 cachedAtlasManager = ScriptableObject.CreateInstance<AtlasManagerScriptableObject>();
                 AssetDatabase.CreateAsset(cachedAtlasManager, AtlasManagerAssetPath);
                 AssetDatabase.SaveAssets();
-                Debug.Log($"RabbitDog: Created default AtlasManager asset at '{AtlasManagerAssetPath}'.");
+                Debug.Log($"CookApps: Created default AtlasManager asset at '{AtlasManagerAssetPath}'.");
             }
 
             cachedAtlasManager = AssetDatabase.LoadAssetAtPath<AtlasManagerScriptableObject>(AtlasManagerAssetPath);

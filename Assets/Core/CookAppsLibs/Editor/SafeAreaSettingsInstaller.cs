@@ -35,7 +35,7 @@ namespace CookApps.Editor
                 so.bottom = 1f;
                 AssetDatabase.CreateAsset(so, assetPath);
                 AssetDatabase.SaveAssets();
-                Debug.Log($"RabbitDog: Created default SafeAreaSettings asset at '{assetPath}'.");
+                Debug.Log($"CookApps: Created default SafeAreaSettings asset at '{assetPath}'.");
             }
 
             TryMarkAddressable(so);
@@ -52,7 +52,7 @@ namespace CookApps.Editor
             var settings = AddressableAssetSettingsDefaultObject.Settings;
             if (settings == null)
             {
-                Debug.LogWarning("RabbitDog: Addressables not configured. SafeAreaSettings will not be addressable.");
+                Debug.LogWarning("CookApps: Addressables not configured. SafeAreaSettings will not be addressable.");
                 return;
             }
 
@@ -73,7 +73,7 @@ namespace CookApps.Editor
                 entry.address = SafeAreaSettings.DefaultAddress;
                 settings.SetDirty(AddressableAssetSettings.ModificationEvent.EntryMoved, entry, true);
                 AssetDatabase.SaveAssets();
-                Debug.Log($"RabbitDog: Marked SafeAreaSettings as Addressable at '{entry.address}'.");
+                Debug.Log($"CookApps: Marked SafeAreaSettings as Addressable at '{entry.address}'.");
             }
             else
             {
@@ -82,7 +82,7 @@ namespace CookApps.Editor
                     entry.address = SafeAreaSettings.DefaultAddress;
                     settings.SetDirty(AddressableAssetSettings.ModificationEvent.EntryModified, entry, true);
                     AssetDatabase.SaveAssets();
-                    Debug.Log($"RabbitDog: Updated SafeAreaSettings address to '{entry.address}'.");
+                    Debug.Log($"CookApps: Updated SafeAreaSettings address to '{entry.address}'.");
                 }
             }
         }

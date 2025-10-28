@@ -3,7 +3,7 @@
 // 수동으로 수정하지 마세요.
 // </auto-generated>
 
-namespace RabbitDog.UIManagements
+namespace CookApps.UIManagements
 {
     public static class UILayerAddressConstants
     {

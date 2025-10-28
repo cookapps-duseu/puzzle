@@ -49,7 +49,7 @@ namespace Template
     public partial class SceneUILayerDatabaseImpl : SceneUILayerDatabase
     {
         private Sprite dimLayerSprite;
-        public SceneUILayerDatabaseImpl(Sprite dimLayerSprite) : this()
+        public SceneUILayerDatabaseImpl(Sprite dimLayerSprite) 
         {
             this.dimLayerSprite = dimLayerSprite;
         }

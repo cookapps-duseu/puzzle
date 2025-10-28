@@ -148,7 +148,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8995706856102437933}
-        m_TargetAssemblyTypeName: RabbitDog.UIExtensions.LobbyPageController, RabbitDog
+        m_TargetAssemblyTypeName: CookApps.UIExtensions.LobbyPageController, CookApps
         m_MethodName: OnClickBottomMenu
         m_Mode: 3
         m_Arguments:
@@ -335,7 +335,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8995706856102437933}
-        m_TargetAssemblyTypeName: RabbitDog.UIExtensions.LobbyPageController, RabbitDog
+        m_TargetAssemblyTypeName: CookApps.UIExtensions.LobbyPageController, CookApps
         m_MethodName: OnClickBottomMenu
         m_Mode: 3
         m_Arguments:
@@ -735,7 +735,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8995706856102437933}
-        m_TargetAssemblyTypeName: RabbitDog.UIExtensions.LobbyPageController, RabbitDog
+        m_TargetAssemblyTypeName: CookApps.UIExtensions.LobbyPageController, CookApps
         m_MethodName: OnClickBottomMenu
         m_Mode: 3
         m_Arguments:
@@ -1612,6 +1612,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3526309206707061446, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526309206707061446, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526309206707061446, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526309206707061446, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6256231887385132149, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1629,6 +1645,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6256231887385132149, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615704430692400038, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615704430692400038, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615704430692400038, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615704430692400038, guid: ed8051d4ea70ecf42b82065b55081846, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

@@ -15,4 +15,4 @@ MonoBehaviour:
   rootFolder: Assets/_Project
   dataFolderName: Data
   scriptsFolderName: 1. Scripts
-  generatedNamespace: RabbitDog.UIManagements
+  generatedNamespace: CookApps.UIManagements
