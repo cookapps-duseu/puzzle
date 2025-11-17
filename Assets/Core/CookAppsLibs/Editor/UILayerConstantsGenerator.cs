@@ -11,21 +11,22 @@ using UnityEngine;
 namespace CookApps.Editor
 {
     [InitializeOnLoad]
-    internal static class UILayerAddressConstantsGenerator
+    internal static class UILayerConstantsGenerator
     {
-        [MenuItem("Tools/CookApps/Generate UI Layer Address Constants", priority = 2100)]
+        [MenuItem("Tools/CookApps/Generate UI Layer Constants", priority = 2100)]
         private static void RunFromMenu()
         {
-            Generate();
-            Debug.Log("CookApps: Regenerated UI Layer Address constants.");
+            // Generate();
+            // Debug.Log("CookApps: Regenerated UI Layer Address constants.");
         }
 
-        private const string GeneratedFolderName = "Generated";
-        private const string OutputFileName = "UILayerAddressConstants.cs";
+        private const string GeneratedFolderName = "Generated_UILayer";
+        private const string NamespaceDefault = "CookApps.UIManagements";
+        private const string OutputFileName = "UILayerConstants.cs";
 
         private static readonly HashSet<AddressableAssetSettings> SubscribedSettings = new HashSet<AddressableAssetSettings>();
 
-        static UILayerAddressConstantsGenerator()
+        static UILayerConstantsGenerator()
         {
             EditorApplication.update += Initialize;
         }
@@ -70,21 +71,52 @@ namespace CookApps.Editor
             var settings = AddressableAssetSettingsDefaultObject.Settings;
             TrySubscribe(settings);
 
-            var projectFolders = ProjectFolderSettingsProvider.GetOrCreateSettings();
-            if (projectFolders == null) return;
+            var outputPath = ResolveGenerationTarget();
 
-            ProjectFolderSettingsProvider.EnsureFolderHierarchy(projectFolders.RootFolder);
-            ProjectFolderSettingsProvider.EnsureFolderHierarchy(projectFolders.ScriptsFolderPath);
-            var outputFolder = ProjectFolderSettingsProvider.BuildChildPath(projectFolders.ScriptsFolderPath, GeneratedFolderName);
-            ProjectFolderSettingsProvider.EnsureFolderHierarchy(outputFolder);
-            var outputPath = ProjectFolderSettingsProvider.BuildChildPath(outputFolder, OutputFileName);
-
-            var addresses = settings == null ? Array.Empty<AssetAddressInfo>() : CollectAssetAddresses(settings);
-            var generationInfo = new GenerationInfo(outputPath, projectFolders.GeneratedNamespace);
-            WriteConstants(addresses, generationInfo);
+            CollectAssetAddresses(settings, out var uiLayerAddresses, out var sceneAddresses);
+            var generationInfo = new GenerationInfo(outputPath, NamespaceDefault);
+            WriteConstants(uiLayerAddresses, sceneAddresses, generationInfo);
         }
 
-        private static AssetAddressInfo[] CollectAssetAddresses(AddressableAssetSettings settings)
+        private static string ResolveGenerationTarget()
+        {
+            var runtimeFolder = LocateRuntimeFolderPath();
+            var generatedFolder = CombineAssetPaths(runtimeFolder, GeneratedFolderName);
+            var outputPath = CombineAssetPaths(generatedFolder, OutputFileName);
+            return outputPath;
+        }
+
+        private static string LocateRuntimeFolderPath()
+        {
+            var assets = AssetDatabase.FindAssets("t: folder, CookAppsLibs");
+            foreach (var guid in assets)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                Debug.Log(path);
+                if (path.Contains("Core"))
+                {
+                    return CombineAssetPaths(path, "Runtime");
+                }
+            }
+            
+            return "Assets";
+        }
+
+        private static string NormalizeAssetPath(string value)
+        {
+            return (value ?? string.Empty).Replace('\\', '/');
+        }
+
+        private static string CombineAssetPaths(string left, string right)
+        {
+            left = NormalizeAssetPath(left).TrimEnd('/');
+            right = NormalizeAssetPath(right).Trim('/');
+            if (string.IsNullOrEmpty(left)) return right;
+            if (string.IsNullOrEmpty(right)) return left;
+            return $"{left}/{right}";
+        }
+
+        private static void CollectAssetAddresses(AddressableAssetSettings settings, out List<AssetAddressInfo> uiLayerAddresses, out List<AssetAddressInfo> sceneAddresses)
         {
             var collectedEntries = new List<AddressableAssetEntry>();
             foreach (var group in settings.groups)
@@ -93,7 +125,8 @@ namespace CookApps.Editor
                 group.GatherAllAssets(collectedEntries, true, true, false);
             }
 
-            var results = new List<AssetAddressInfo>();
+            uiLayerAddresses = new List<AssetAddressInfo>();
+            sceneAddresses = new List<AssetAddressInfo>();
             var seenAssetPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             var usedFieldNames = new HashSet<string>(StringComparer.Ordinal);
 
@@ -111,19 +144,9 @@ namespace CookApps.Editor
                     var uiLayerComponent = prefab.GetComponent<UILayer>();
                     if (uiLayerComponent == null) continue;
 
-                    var prefabName = Path.GetFileNameWithoutExtension(entry.AssetPath);
                     var className = uiLayerComponent.GetType().Name;
                     var fieldName = BuildFieldName(className, usedFieldNames);
-
-                    var commentBuilder = new StringBuilder(className);
-                    if (!string.IsNullOrEmpty(prefabName))
-                    {
-                        commentBuilder.Append(" (Prefab: ");
-                        commentBuilder.Append(prefabName);
-                        commentBuilder.Append(')');
-                    }
-
-                    results.Add(new AssetAddressInfo(fieldName, entry.address, commentBuilder.ToString()));
+                    uiLayerAddresses.Add(new AssetAddressInfo(fieldName, entry.address));
                     continue;
                 }
 
@@ -133,14 +156,10 @@ namespace CookApps.Editor
                     if (sceneAsset == null) continue;
 
                     var sceneName = sceneAsset.name;
-                    var fieldName = BuildFieldName($"Scene{sceneName}", usedFieldNames);
-                    var comment = string.IsNullOrEmpty(sceneName) ? "Scene" : $"Scene: {sceneName}";
-                    results.Add(new AssetAddressInfo(fieldName, entry.address, comment));
+                    var fieldName = BuildFieldName(sceneName, usedFieldNames);
+                    sceneAddresses.Add(new AssetAddressInfo(fieldName, entry.address));
                 }
             }
-
-            results.Sort((left, right) => string.CompareOrdinal(left.FieldName, right.FieldName));
-            return results.ToArray();
         }
 
         private static string BuildFieldName(string prefabName, HashSet<string> usedNames)
@@ -178,7 +197,7 @@ namespace CookApps.Editor
             return candidate;
         }
 
-        private static void WriteConstants(IReadOnlyList<AssetAddressInfo> addresses, GenerationInfo info)
+        private static void WriteConstants(IReadOnlyList<AssetAddressInfo> uiLayerAddresses, IReadOnlyList<AssetAddressInfo> sceneAddresses, GenerationInfo info)
         {
             var folder = Path.GetDirectoryName(info.OutputPath);
             if (!string.IsNullOrEmpty(folder))
@@ -196,35 +215,48 @@ namespace CookApps.Editor
             builder.Append(info.Namespace);
             builder.AppendLine();
             builder.AppendLine("{");
-            builder.AppendLine("    public static class UILayerAddressConstants");
+            builder.AppendLine("    internal static class UILayerConstants");
             builder.AppendLine("    {");
-
-            if (addresses.Count == 0)
+            if (uiLayerAddresses.Count == 0)
             {
                 builder.AppendLine("        // UILayer가 최상위에 붙은 Addressable Prefab이 없습니다.");
             }
             else
             {
-                foreach (var entry in addresses)
+                builder.AppendLine("        public static string GetUILayerAddress(string uiLayerName)");
+                builder.AppendLine("        {");
+                builder.AppendLine("            return uiLayerName switch");
+                builder.AppendLine("            {");
+                foreach (var entry in uiLayerAddresses)
                 {
-                    builder.Append("        public const string ");
+                    builder.Append("                \"");
                     builder.Append(entry.FieldName);
-                    builder.Append(" = \"");
+                    builder.Append("\" => \"");
                     builder.Append(entry.Address);
-                    builder.Append("\"");
-                    if (!string.IsNullOrEmpty(entry.Comment))
-                    {
-                        builder.Append("; // ");
-                        builder.Append(entry.Comment);
-                        builder.AppendLine();
-                    }
-                    else
-                    {
-                        builder.AppendLine(";");
-                    }
+                    builder.AppendLine("\",");
                 }
+                builder.AppendLine("                _ => string.Empty");
+                builder.AppendLine("            };");
+                builder.AppendLine("        }");
             }
 
+            builder.AppendLine();
+            
+            builder.AppendLine("        public static string GetSceneAddress(string sceneName)");
+            builder.AppendLine("        {");
+            builder.AppendLine("            return sceneName switch");
+            builder.AppendLine("            {");
+            foreach (var entry in sceneAddresses)
+            {
+                builder.Append("                \"");
+                builder.Append(entry.FieldName);
+                builder.Append("\" => \"");
+                builder.Append(entry.Address);
+                builder.AppendLine("\",");
+            }
+            builder.AppendLine("                _ => string.Empty");
+            builder.AppendLine("            };");
+            builder.AppendLine("        }");
             builder.AppendLine("    }");
             builder.AppendLine("}");
 
@@ -279,16 +311,14 @@ namespace CookApps.Editor
 
         private readonly struct AssetAddressInfo
         {
-            public AssetAddressInfo(string fieldName, string address, string comment)
+            public AssetAddressInfo(string fieldName, string address)
             {
                 FieldName = fieldName;
                 Address = address;
-                Comment = comment;
             }
 
             public string FieldName { get; }
             public string Address { get; }
-            public string Comment { get; }
         }
 
         private readonly struct GenerationInfo

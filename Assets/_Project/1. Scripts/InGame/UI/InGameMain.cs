@@ -3,8 +3,6 @@ using CookApps.Utility;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Cover, UILayerAddressConstants.InGameMain)]
-    [RegisterScene("InGame", "Scenes/InGame.unity", typeof(InGameMain))]
     public class InGameMain : UILayer
     {
         public void Initialize()

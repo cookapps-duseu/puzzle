@@ -126,5 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dad938932d42219f5afa1ee558c03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDefaultUILayer: 0
+  uiLayerType: 0
   baseAnimator: {fileID: 0}
   preloadAddressables: []

@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Overlay, UILayerAddressConstants.TopPanelBar)]
     public class TopPanelBar : UILayer
     {
         private static int inc;

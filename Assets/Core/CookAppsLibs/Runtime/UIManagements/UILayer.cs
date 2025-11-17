@@ -7,6 +7,7 @@ namespace CookApps.UIManagements
 {
     public abstract class UILayer : CachedMonoBehaviour
     {
+        [SerializeField] private UILayerType uiLayerType;
         [SerializeField] protected Animator baseAnimator;
         [SerializeField] private AssetReferenceGameObject[] preloadAddressables;
         
@@ -27,7 +28,7 @@ namespace CookApps.UIManagements
         public virtual int Priority => 0;
 
         public string Key { get; set; }
-        public UILayerType UILayerType { get; set; }
+        public UILayerType UILayerType => uiLayerType;
 
         protected internal virtual void Awake()
         {
@@ -46,6 +47,10 @@ namespace CookApps.UIManagements
 
         protected internal virtual void OnPreEnter(object param)
         {
+            for (var i = 0; i < PreloadAddressables.Length; i++)
+            {
+                PreloadAddressables[i].LoadAssetAsync();
+            }
         }
 
         protected internal virtual void StartEnterAnimation(Action<UILayer> endCallback)
@@ -85,6 +90,10 @@ namespace CookApps.UIManagements
 
         protected internal virtual void OnPostExit()
         {
+            for (var i = 0; i < PreloadAddressables.Length; i++)
+            {
+                PreloadAddressables[i].ReleaseAsset();
+            }
         }
 
         protected internal virtual void OnBackButton(ref bool offPrevUI)

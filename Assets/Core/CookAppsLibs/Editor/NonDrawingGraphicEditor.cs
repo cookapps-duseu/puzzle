@@ -1,8 +1,8 @@
-#if UNITY_EDITOR
+using CookApps.Utility;
 using UnityEditor;
 using UnityEngine;
 
-namespace CookApps.Utility.Editor
+namespace CookAppsEditor
 {
     [CustomEditor(typeof(NonDrawingGraphic))]
     public class NonDrawingGraphicEditor : UnityEditor.Editor
@@ -15,4 +15,3 @@ namespace CookApps.Utility.Editor
         }
     }
 }
-#endif

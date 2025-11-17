@@ -1,9 +1,10 @@
 using System.Linq;
+using CookApps.UIExtensions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CookApps.UIExtensions.Editor
+namespace CookApps.Editor
 {
     public static class ConvertButtonToRDButton
     {

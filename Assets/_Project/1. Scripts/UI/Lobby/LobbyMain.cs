@@ -21,8 +21,6 @@ namespace Template
         public int starCount;
     }
     
-    [RegisterUILayer(UILayerType.Cover, UILayerAddressConstants.LobbyMain)]
-    [RegisterScene("Lobby", UILayerAddressConstants.SceneLobby, typeof(LobbyMain))]
     public class LobbyMain : UILayer
     {
         [SerializeField] private LobbyPageController pageController;

@@ -9,8 +9,6 @@ using UnityEngine.Purchasing;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Cover, UILayerAddressConstants.TitleMain)]
-    [RegisterScene("Title", UILayerAddressConstants.SceneTitle, typeof(TitleMain))]
     public class TitleMain : UILayer
     {
         [SerializeField] private AssetReferenceGameObject audioControllerRef;

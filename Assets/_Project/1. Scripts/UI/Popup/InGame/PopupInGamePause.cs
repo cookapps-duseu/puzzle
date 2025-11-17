@@ -2,7 +2,6 @@ using CookApps.UIManagements;
 
 namespace Template
 {
-    [RegisterUILayer(UILayerType.Popup, UILayerAddressConstants.PopupInGamePause)]
     public class PopupInGamePause : UILayer
     {
         protected override void OnPreEnter(object param)

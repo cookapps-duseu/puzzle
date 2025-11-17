@@ -14,14 +14,12 @@ namespace CookApps.UIManagements
 {
     public sealed partial class SceneUILayerManager : SingletonMonoBehaviour<SceneUILayerManager>
     {
-        private SceneUILayerDatabase database;
-
         // ui layer pool
-        private Dictionary<Type, Queue<GameObject>> uiLayerPool = new ();
+        private Dictionary<string, Queue<GameObject>> uiLayerPool = new ();
 
         private List<UILayerStackData> uiLayerStacks = new ();
 
-        private bool isLoadingUI;
+        internal bool isLoadingUI;
         private bool noNeedToLoadUI;
 
         public string CurrentSceneName { get; private set; }
@@ -74,7 +72,7 @@ namespace CookApps.UIManagements
         /// UIManagements 초기화
         /// 재사용 UI들을 관리할 recycles 생성, UI Layer Date Source 생성
         /// </summary>
-        public void Initialize(SceneUILayerDatabase database)
+        public void Initialize()
         {
             var recycleGo = new GameObject("recycledUIs");
             var recycleCanvas = recycleGo.AddComponent<Canvas>();
@@ -88,7 +86,7 @@ namespace CookApps.UIManagements
             dimLayer = null;
             isDimLayerOn = false;
 
-            // TransitionNode 생성 (recycle과 동일한 시점)
+            // TransitionNode 생성
             var transitionGo = new GameObject("TransitionNode", typeof(RectTransform));
             var transitionRect = transitionGo.GetComponent<RectTransform>();
             transitionRect.SetParent(transform, false);
@@ -113,8 +111,6 @@ namespace CookApps.UIManagements
             transitionScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
             
             transitionNode = transitionGo.transform;
-
-            this.database = database;
 
             // 첫번째 씬에서 필요
             ResetNodeRefs();
@@ -204,7 +200,7 @@ namespace CookApps.UIManagements
 
         public void ClearUIPool()
         {
-            foreach (KeyValuePair<Type, Queue<GameObject>> pair in uiLayerPool)
+            foreach (var pair in uiLayerPool)
             {
                 while (pair.Value.Count > 0)
                 {
@@ -259,8 +255,9 @@ namespace CookApps.UIManagements
             return layer as T;
         }
 
-        private async Awaitable<UILayer> PushUILayerAsync(Type uiType, string key, object data = null, Action<object> closeCallback = null)
+        internal async Awaitable<UILayer> PushUILayerAsync(Type uiType, string key, object data = null, Action<object> closeCallback = null)
         {
+            string uiName = uiType.Name;
             while (isLoadingUI)
             {
                 await Awaitable.NextFrameAsync();
@@ -281,25 +278,25 @@ namespace CookApps.UIManagements
 
             if (isExistUIStack)
             {
-                RDDebug.LogAssertion($"{uiType.Name}::{key} is already exist!!");
+                RDDebug.LogError($"{uiName}::{key} is already exist!!");
                 return null;
             }
 
-            if (!database.UILayerDataDict.ContainsKey(uiType))
+            if (string.IsNullOrEmpty(UILayerConstants.GetUILayerAddress(uiName)))
             {
-                RDDebug.LogAssertion($"{uiType.Name} is not exist UI name!");
+                RDDebug.LogError($"{uiName} is not exist UI name!");
                 return null;
             }
 
             UILayer uiLayer;
-            if (uiLayerPool.TryGetValue(uiType, out Queue<GameObject> queue) && queue.Count > 0)
+            if (uiLayerPool.TryGetValue(uiName, out var queue) && queue.Count > 0)
             {
-                uiLayer = queue.Dequeue().GetComponent(uiType) as UILayer;
+                uiLayer = queue.Dequeue().GetComponent(uiName) as UILayer;
             }
             else
             {
                 isLoadingUI = true;
-                uiLayer = await LoadUILayer(uiType);
+                uiLayer = await LoadUILayer(uiName);
                 isLoadingUI = false;
                 if (noNeedToLoadUI)
                 {
@@ -319,11 +316,9 @@ namespace CookApps.UIManagements
             uiLayer.CachedGo.SetActive(false);
             uiLayer.CachedRectTr.SetParent(mainNode, false);
             uiLayer.name = key;
-            Type type = uiLayer.GetType();
-            uiLayer.UILayerType = database.UILayerDataDict[type].LayerType;
             long inc = uiIncAcc + (uiLayer.Priority * 100);
             uiIncAcc++;
-            return new UILayerStackData(type, key, inc, uiLayer, UILayerState.Initialized, closeCallback);
+            return new UILayerStackData(key, inc, uiLayer, UILayerState.Initialized, closeCallback);
         }
 
         private void PushUILayerInternal(UILayerStackData uiLayerStackData, object data)
@@ -634,10 +629,10 @@ namespace CookApps.UIManagements
         #endregion
 
         #region Load UI from addressables
-        private async Awaitable<UILayer> LoadUILayer(Type uiType)
+        private async Awaitable<UILayer> LoadUILayer(string uiLayerName)
         {
-            UILayerData sceneUILayerData = database.UILayerDataDict[uiType];
-            var handle = Addressables.InstantiateAsync(sceneUILayerData.AddressableName, mainNode);
+            var address = UILayerConstants.GetUILayerAddress(uiLayerName);
+            var handle = Addressables.InstantiateAsync(address, mainNode);
             await handle.WaitUntilDone();
             return handle.Result.GetComponent<UILayer>();
         }
@@ -751,7 +746,11 @@ namespace CookApps.UIManagements
             var dimLayerGo = new GameObject(name, typeof(RectTransform));
             var dimLayer = dimLayerGo.AddComponent<Image>();
             dimLayer.color = new Color(0f, 0f, 0f, 0f);
-            dimLayer.sprite = database.GetDimLayerSprite();
+            var tex = new Texture2D(1, 1, TextureFormat.RGBA32, false);
+            tex.SetPixel(0, 0, Color.black);
+            tex.Apply();
+            var dimLayerSprite = Sprite.Create(tex, new Rect(0, 0, 1, 1), Vector2.one * 0.5f);
+            dimLayer.sprite = dimLayerSprite;
             var dimLayerTr = dimLayerGo.GetComponent<RectTransform>();
             dimLayerTr.SetParent(mainNode, false);
             dimLayerTr.anchorMax = Vector2.one;

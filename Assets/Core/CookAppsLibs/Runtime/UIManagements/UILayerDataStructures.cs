@@ -38,9 +38,8 @@ namespace CookApps.UIManagements
     [Serializable]
     internal class UILayerStackData
     {
-        public UILayerStackData(Type layerType, string key, long inc, UILayer layer, UILayerState state, Action<object> closeCallback)
+        public UILayerStackData(string key, long inc, UILayer layer, UILayerState state, Action<object> closeCallback)
         {
-            LayerType = layerType;
             Key = key;
             Layer = layer;
             Layer.Key = key;
@@ -50,7 +49,6 @@ namespace CookApps.UIManagements
         }
 
         public readonly long Inc;
-        public readonly Type LayerType;
         public readonly string Key;
         public readonly UILayer Layer;
 
@@ -59,31 +57,6 @@ namespace CookApps.UIManagements
         public readonly Action<object> CloseCallback;
 
         public static Comparison<UILayerStackData> SortByInc = (x, y) => (int) (x.Inc - y.Inc);
-    }
-
-    [Serializable]
-    public class UILayerData
-    {
-        public readonly UILayerType LayerType;
-        public readonly string AddressableName;
-
-        public UILayerData(UILayerType layerType, string addressableName)
-        {
-            LayerType = layerType;
-            AddressableName = addressableName;
-        }
-    }
-
-    [Serializable]
-    public class SceneData
-    {
-        public readonly string AddressableName;
-        public Type[] DefaultUILayers;
-        public SceneData(string addressableName, params Type[] defaultUILayers)
-        {
-            AddressableName = addressableName;
-            DefaultUILayers = defaultUILayers;
-        }
     }
     #endregion
 }

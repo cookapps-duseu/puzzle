@@ -80,8 +80,6 @@ namespace CookApps.UIManagements
         {
             // 2. 풀에 있는 UI들을 제거
             ClearUIPool();
-
-            SceneData sceneData = database.SceneDataDict[sceneName];
             
             {
                 // dimlayer 관련 변수 초기화
@@ -110,7 +108,8 @@ namespace CookApps.UIManagements
 
             // 4. 씬 로드
             var prevHandle = handle;
-            handle = Addressables.LoadSceneAsync(sceneData.AddressableName, activateOnLoad: false);
+            var address = UILayerConstants.GetSceneAddress(sceneName);
+            handle = Addressables.LoadSceneAsync(address, activateOnLoad: false);
             operationWrapper.SetAsyncOperation(handle);
             var nextSceneInstance = await handle.WaitUntilDone();
             while (!operationWrapper.allowSceneActivation)
@@ -135,17 +134,20 @@ namespace CookApps.UIManagements
             CurrentSceneName = sceneName;
             ResetNodeRefs();
 
-            for (var i = 0; i < database.SceneDataDict[sceneName].DefaultUILayers.Length; i++)
+            var defaultUILayerLoader = FindFirstObjectByType<DefaultUILayerLoader>();
+            await defaultUILayerLoader.LoadDefaultUILayers(defaultUIData);
+            var defaultUILayers = new List<string>();
+            for (var i = 0; i < defaultUILayers.Count; i++)
             {
-                var type = database.SceneDataDict[sceneName].DefaultUILayers[i];
-                PushUILayerAsync(type, type.Name, defaultUIData).Forget();
+                var type = defaultUILayers[i];
+                PushUILayerAsync<UILayer>(type, defaultUIData).Forget();
                 bool isEnterFinished = false;
                 while (!isEnterFinished)
                 {
                     await Awaitable.NextFrameAsync();
                     foreach (var stack in uiLayerStacks)
                     {
-                        if (stack.LayerType == type && stack.State == UILayerState.Entered)
+                        if (stack.Key == type && stack.State == UILayerState.Entered)
                         {
                             isEnterFinished = true;
                         }

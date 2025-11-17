@@ -1,7 +1,8 @@
+using CookApps.UIExtensions;
 using UnityEditor;
 using UnityEditor.UI;
 
-namespace CookApps.UIExtensions.Editor
+namespace CookApps.Editor
 {
     [CustomEditor(typeof(TableView), true)]
     [CanEditMultipleObjects]
