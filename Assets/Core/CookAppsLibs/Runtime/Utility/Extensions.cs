@@ -1,8 +1,10 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Random = System.Random;
 
@@ -336,6 +338,47 @@ namespace CookApps.Utility
         public static DateTime ToUtcDateTime(this long value)
         {
             return Epoch.AddMilliseconds(value);
+        }
+        
+        public static string ToLeftTimeStringHHMMSS(this TimeSpan leftTimeSpan)
+        {
+            if (leftTimeSpan.TotalHours > 1)
+            {
+                return $"{(int) leftTimeSpan.TotalHours:00}:{leftTimeSpan.Minutes:00}:{leftTimeSpan.Seconds:00}";
+            }
+            else
+            {
+                return $"{(int) leftTimeSpan.TotalMinutes:#00}:{leftTimeSpan.Seconds:00}";
+            }
+        }
+
+        public static string ToItemTime(this int minutes)
+        {
+            var timeSpan = TimeSpan.FromMinutes(minutes);
+            using var _ = ListPool<string>.Get(out var parts);
+            
+            if (timeSpan.Days > 0)
+            {
+                parts.Add($"{timeSpan.Days}d");
+            }
+
+            if (timeSpan.Hours > 0)
+            {
+                parts.Add($"{timeSpan.Hours}h");
+            }
+            
+            if (timeSpan.Minutes > 0)
+            {
+                parts.Add($"{timeSpan.Minutes}m");
+            }
+            
+            if (timeSpan.Seconds > 0)
+            {
+                parts.Add($"{timeSpan.Seconds}s");
+            }
+            
+            int partLength = Math.Min(parts.Count, 2);
+            return string.Join(" ", parts, 0, partLength);
         }
     }
 }
