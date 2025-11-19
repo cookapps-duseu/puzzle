@@ -41,12 +41,16 @@ namespace Template
         private Action<int> OnComplete;
 
         private int index;
+        private ParticleSystem particle;
 
         public void Initialize(int index, Transform dest = null, Action<int> onComplete = null)
         {
             OnComplete = onComplete;
             this.index = index;
-            instantParticle.Ready(dest).Forget();
+            instantParticle.Create(dest).ContinueWith((particle, self) =>
+            {
+                self.particle = particle;
+            }, this);
         }
 
         public async Awaitable StartMovement()
@@ -79,7 +83,9 @@ namespace Template
                 }
             }
 
-            instantParticle.Play(endPoint);
+            particle.transform.localPosition = endPoint;
+            particle.gameObject.SetActive(true);
+            particle.Play();
             
             gameObject.SetActive(false);
             Destroy(gameObject);
