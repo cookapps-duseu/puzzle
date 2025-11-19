@@ -136,24 +136,6 @@ namespace CookApps.UIManagements
 
             var defaultUILayerLoader = FindFirstObjectByType<DefaultUILayerLoader>();
             await defaultUILayerLoader.LoadDefaultUILayers(defaultUIData);
-            var defaultUILayers = new List<string>();
-            for (var i = 0; i < defaultUILayers.Count; i++)
-            {
-                var type = defaultUILayers[i];
-                PushUILayerAsync<UILayer>(type, defaultUIData).Forget();
-                bool isEnterFinished = false;
-                while (!isEnterFinished)
-                {
-                    await Awaitable.NextFrameAsync();
-                    foreach (var stack in uiLayerStacks)
-                    {
-                        if (stack.Key == type && stack.State == UILayerState.Entered)
-                        {
-                            isEnterFinished = true;
-                        }
-                    }
-                }
-            }
 
             operationWrapper.SetComplete();
 

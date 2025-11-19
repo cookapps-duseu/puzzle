@@ -66,8 +66,9 @@ namespace CookApps.Utility
             if (!_registry.TryGetValue(key, out var list) || list.Count == 0)
                 return false;
 
-            foreach (var obj in list)
+            for (var i = list.Count - 1; i >= 0; i--)
             {
+                var obj = list[i];
                 if (obj is MonoBehaviour { gameObject: { activeInHierarchy: true } })
                 {
                     res = obj as T;

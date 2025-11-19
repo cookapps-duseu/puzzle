@@ -9,7 +9,7 @@ namespace CookApps.Utility
         private Transform poolTr = null;
         public Transform PoolTr => poolTr;
 
-        public void Awake()
+        protected override void Awake()
         {
             var origins = new GameObject("origins");
             originsTr = origins.transform;

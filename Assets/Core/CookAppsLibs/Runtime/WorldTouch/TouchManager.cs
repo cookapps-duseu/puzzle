@@ -32,7 +32,7 @@ namespace CookApps.WorldTouch
 
         private Camera mainCamera;
 
-        protected void Awake()
+        protected override void Awake()
         {
             EnhancedTouchSupport.Enable();
 

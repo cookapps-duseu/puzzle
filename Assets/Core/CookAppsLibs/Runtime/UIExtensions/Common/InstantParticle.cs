@@ -1,5 +1,4 @@
 using System;
-using CookApps.UIManagements;
 using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,20 +9,21 @@ namespace CookApps.UIExtensions
     public class InstantParticle
     {
         [SerializeField] private AssetReferenceGameObject particleRef;
+        
+        public Awaitable<ParticleSystem> Create(Transform parent)
+        {
+            return Create(parent, false);
+        }
 
-        private ParticleSystem particle;
-
-        public async Awaitable Ready(Transform parent, bool autoPlay = false, Vector3 autoPlayPosition = default)
+        public async Awaitable<ParticleSystem> Create(Transform parent, bool autoPlay, bool isModifyPosition = false, Vector3 localPosition = default)
         {
             if (!particleRef.RuntimeKeyIsValid())
-                return;
+                return null;
 
-            if (parent == null)
-                parent = SceneUILayerManager.Instance.FloatingNode;
             var handle = particleRef.InstantiateAsync(parent);
             await handle.WaitUntilDone();
             handle.Result.SetActive(false);
-            particle = handle.Result.GetComponent<ParticleSystem>();
+            var particle = handle.Result.GetComponent<ParticleSystem>();
             var destroyNotifier = particle.gameObject.AddComponent<DestroyNotifier>();
             destroyNotifier.OnDestroyed += () =>
             {
@@ -31,25 +31,13 @@ namespace CookApps.UIExtensions
                 particle = null;
             };
             if (autoPlay)
-                Play(autoPlayPosition);
-        }
-        
-        public void Play()
-        {
-            Play(Vector2.zero);
-        }
-        
-        public void Play(Vector3 position)
-        {
-            if (particle == null)
             {
-                Debug.LogError("InstantParticle: Particle system not loaded. Call Ready() first.");
-                return;
+                if (isModifyPosition)
+                    particle.transform.localPosition = localPosition;
+                particle.gameObject.SetActive(true);
+                particle.Play();
             }
-            
-            particle.transform.position = position;
-            particle.gameObject.SetActive(true);
-            particle.Play();
+            return particle;
         }
     }
 }

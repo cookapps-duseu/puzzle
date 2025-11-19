@@ -300,6 +300,21 @@ namespace CookApps.Utility
                 GetAllChildRecursive(child, children); // 재귀 호출로 자식의 자식들도 추가
             }
         }
+        
+        public static void SetLayerRecursive(this Transform tr, int layer)
+        {
+            SetLayerInternal(tr, layer);
+        }
+
+        private static void SetLayerInternal(Transform t, int layer)
+        {
+            t.gameObject.layer = layer;
+
+            for (var i = 0; i < t.childCount; i++)
+            {
+                SetLayerInternal(t.GetChild(i), layer);
+            }
+        }
     }
     
     public static class DateTimeExtensions

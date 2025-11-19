@@ -47,6 +47,12 @@ namespace CookApps
         [SerializeField] protected TMP_Text text;
     }
 
+    [RequireComponent(typeof(RectTransform))]
+    public abstract class SimpleRectBaseSwapper : SimpleSwapper
+    {
+        [SerializeField] protected RectTransform rectTr;
+    }
+
     public static class SimpleSwapperExtensions
     {
         public static void Swap(this IReadOnlyList<SimpleSwapper> swappers, SimpleSwapType swapType)

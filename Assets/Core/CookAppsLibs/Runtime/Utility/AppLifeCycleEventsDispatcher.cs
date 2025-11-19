@@ -9,7 +9,7 @@ namespace CookApps.Utility
         public static event Action OnResume;
         public static event Action OnFocus;
 
-        private void Awake()
+        protected override void Awake()
         {
             DontDestroyOnLoad(this);
         }

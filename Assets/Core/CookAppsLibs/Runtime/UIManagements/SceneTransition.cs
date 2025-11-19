@@ -35,13 +35,15 @@ namespace CookApps.UIManagements
 
         public static async Awaitable FadeInAsync()
         {
-            if (Current == null) throw new Exception("No current scene transition to fade in.");
+            if (Current == null)
+                return;
             await Current.FadeInAsync();
         }
 
         public static async Awaitable FadeOutAsync()
         {
-            if (Current == null) throw new Exception("No current scene transition to fade out.");
+            if (Current == null)
+                return;
             await Current.FadeOutAsync();
             Clear();
         }
