@@ -9,19 +9,12 @@ namespace Template
     public class TutorialManager : SingletonMonoBehaviour<TutorialManager>
     {
         private TutorialBase currentTutorial;
-        private Action onEndTutorial;
-
-        private void Awake()
-        {
-            onEndTutorial = OnEndTutorial;
-        }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
             currentTutorial?.Kill();
             currentTutorial = null;
-            onEndTutorial = null;
         }
 
         public bool RunTutorial<T>() where T : TutorialBase, new ()
@@ -30,7 +23,7 @@ namespace Template
                 return false;
 
             currentTutorial = new T();
-            currentTutorial.RunTutorial(onEndTutorial);
+            currentTutorial.RunTutorial(OnEndTutorial);
             return true;
         }
         

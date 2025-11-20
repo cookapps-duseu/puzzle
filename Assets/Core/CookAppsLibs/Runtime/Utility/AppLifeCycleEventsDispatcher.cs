@@ -11,6 +11,7 @@ namespace CookApps.Utility
 
         protected override void Awake()
         {
+            base.Awake();
             DontDestroyOnLoad(this);
         }
 

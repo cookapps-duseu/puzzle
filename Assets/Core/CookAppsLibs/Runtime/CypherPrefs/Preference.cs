@@ -18,7 +18,6 @@ namespace CookApps.CypherPrefs
         public Preference(IPreferenceGetterSetter getterSetter)
         {
             this.getterSetter = getterSetter ?? throw new ArgumentNullException(nameof(getterSetter));
-            GlobalCypherPrefs.RegisterPreference(this);
         }
 
         public abstract string PreferenceKey { get; }

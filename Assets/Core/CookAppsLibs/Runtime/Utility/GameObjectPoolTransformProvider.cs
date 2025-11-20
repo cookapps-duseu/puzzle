@@ -11,6 +11,7 @@ namespace CookApps.Utility
 
         protected override void Awake()
         {
+            base.Awake();
             var origins = new GameObject("origins");
             originsTr = origins.transform;
             origins.transform.SetParent(transform);

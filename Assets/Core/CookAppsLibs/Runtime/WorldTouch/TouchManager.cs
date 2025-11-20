@@ -34,7 +34,13 @@ namespace CookApps.WorldTouch
 
         protected override void Awake()
         {
+            base.Awake();
             EnhancedTouchSupport.Enable();
+
+#if UNITY_EDITOR || UNITY_STANDALONE
+            // 마우스/펜 입력을 Touch로 시뮬레이션
+            TouchSimulation.Enable();
+#endif
 
             // Initialize cylinder pool
             cylinderPool = new ObjectPool<TouchCorrectionCylinder>(
