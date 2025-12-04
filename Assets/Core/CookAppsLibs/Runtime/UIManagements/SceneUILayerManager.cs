@@ -278,13 +278,13 @@ namespace CookApps.UIManagements
 
             if (isExistUIStack)
             {
-                RDDebug.LogError($"{uiName}::{key} is already exist!!");
+                CADebug.LogError($"{uiName}::{key} is already exist!!");
                 return null;
             }
 
             if (string.IsNullOrEmpty(UILayerConstants.GetUILayerAddress(uiName)))
             {
-                RDDebug.LogError($"{uiName} is not exist UI name!");
+                CADebug.LogError($"{uiName} is not exist UI name!");
                 return null;
             }
 
@@ -725,9 +725,9 @@ namespace CookApps.UIManagements
                 floatingNodeGo = floatingNode.gameObject;
             }
 
-            if ((floatingNodeCanvas = mainNodeGo.GetComponent<Canvas>()) == null)
+            if ((floatingNodeCanvas = floatingNodeGo.GetComponent<Canvas>()) == null)
             {
-                floatingNodeCanvas = mainNodeGo.AddComponent<Canvas>();
+                floatingNodeCanvas = floatingNodeGo.AddComponent<Canvas>();
             }
             if (floatingNodeGo.GetComponent<GraphicRaycaster>() == null)
             {

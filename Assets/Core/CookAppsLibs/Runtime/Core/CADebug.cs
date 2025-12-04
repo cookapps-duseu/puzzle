@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace CookApps
 {
-	public static class RDDebug
+	public static class CADebug
 	{
 		[Conditional("ENABLE_LOG")]
 		public static void DrawLine(Vector3 start, Vector3 end, Color color)

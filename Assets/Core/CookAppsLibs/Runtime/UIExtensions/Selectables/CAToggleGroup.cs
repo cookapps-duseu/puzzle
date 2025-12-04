@@ -104,12 +104,12 @@ namespace CookApps.UIExtensions
 
         public void HasTheGroupToggle(bool value)
         {
-            RDDebug.Log("Testing, the group has toggled [" + value + "]");
+            CADebug.Log("Testing, the group has toggled [" + value + "]");
         }
 
         public void HasAToggleFlipped(bool value)
         {
-            RDDebug.Log("Testing, a toggle has toggled [" + value + "]");
+            CADebug.Log("Testing, a toggle has toggled [" + value + "]");
         }
     }
 }
