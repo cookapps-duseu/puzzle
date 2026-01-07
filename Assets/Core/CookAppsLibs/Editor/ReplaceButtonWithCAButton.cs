@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace CookApps.Editor
 {
-    public static class ConvertButtonToRDButton
+    public static class ConvertButtonToCAButton
     {
         // 단일 컨텍스트 메뉴 (Button 인스펙터 톱니바)
         [MenuItem("CONTEXT/Button/Convert to RDButton")]
