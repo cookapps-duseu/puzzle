@@ -90,3 +90,5 @@ Assets/FR2_Cache.asset*
 
 # Packed Addressables
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+Generated_UILayer*
