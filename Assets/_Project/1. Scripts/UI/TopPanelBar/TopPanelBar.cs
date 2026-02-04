@@ -35,7 +35,7 @@ namespace Template
             SceneUILayerManager.OnUITransitionEvent -= OnUITransitionEvent;
         }
 
-        private void OnUITransitionEvent(UILayerTransition transaction, string uiKey, UILayer ui)
+        private void OnUITransitionEvent(UILayerTransition transaction, string uiKey, UILayer ui, object data)
         {
             if (transaction == UILayerTransition.Exiting && ui == targetUI)
             {

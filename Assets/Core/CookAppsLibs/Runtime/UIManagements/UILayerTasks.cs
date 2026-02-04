@@ -44,7 +44,7 @@ namespace CookApps.UIManagements
             this.continuation += continuation;
         }
         
-        private void OnUILayerClosed(UILayerTransition transition, string key, UILayer uiLayer)
+        private void OnUILayerClosed(UILayerTransition transition, string key, UILayer uiLayer, object data)
         {
             if (transition != UILayerTransition.ExitFinished)
                 return;

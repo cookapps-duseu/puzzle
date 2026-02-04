@@ -70,7 +70,7 @@ namespace Template
             }
             var iapTask = CookAppsIapWrapper.Instance.Initialize(items, null);
 
-            handles.Add(AtlasManager.Instance.Initialize("Data/AtlasManager.asset"));
+            handles.Add(SpriteManager.Instance.Initialize("Data/SpriteManager.asset"));
     #if __DEV && __SRD
             SRDebug.Init();
     #endif

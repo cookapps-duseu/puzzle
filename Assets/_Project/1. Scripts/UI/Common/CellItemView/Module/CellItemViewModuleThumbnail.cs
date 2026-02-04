@@ -7,7 +7,7 @@ namespace Template
 {
     public class CellItemViewModuleThumbnail : CellItemViewModuleBase
     {
-        [SerializeField] private ImageFromAtlas imgThumbnail;
+        [SerializeField] private SpriteLoader imgThumbnail;
 
         public override void Init(IReward data)
         {
