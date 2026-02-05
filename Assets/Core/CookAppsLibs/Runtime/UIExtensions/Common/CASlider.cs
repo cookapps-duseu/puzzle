@@ -159,7 +159,7 @@ namespace CookApps.UIExtensions
                 handleRect.anchorMax = anchorMax;
             }
         }
-        
+
         public void SetValue(float cur, float max, string customText = null)
         {
             Value = cur / max * maxValue;
@@ -171,7 +171,7 @@ namespace CookApps.UIExtensions
                 }
                 else
                 {
-                    text.SetText(format, cur, max);
+                    text.SetText(string.Format(format, cur, max));
                 }
             }
         }

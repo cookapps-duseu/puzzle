@@ -75,7 +75,7 @@ namespace CookApps.Utility
 
         private void OnDestroyPoolObject(T obj)
         {
-            if (!Application.isPlaying)
+            if (obj == null)
                 return;
             Object.Destroy(obj.gameObject);
         }

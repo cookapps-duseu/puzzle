@@ -33,13 +33,13 @@ namespace CookApps.UIManagements
                 Completed = null;
             }
             public bool IsDone { get; private set; }
-            
+
             public SceneLoadAsyncOperationAwaiter GetAwaiter()
             {
                 return new SceneLoadAsyncOperationAwaiter(this);
             }
         }
-        
+
         public struct SceneLoadAsyncOperationAwaiter : INotifyCompletion
         {
             private SceneLoadAsyncOperationWrapper operation;
@@ -80,21 +80,21 @@ namespace CookApps.UIManagements
         {
             // 2. 풀에 있는 UI들을 제거
             ClearUIPool();
-            
+
             {
                 // dimlayer 관련 변수 초기화
                 dimLayerCreated = false;
                 dimLayer = null;
                 isDimLayerOn = false;
             }
-            
+
             // 3. 현재씬에 떠있는 UI들 정리
             var copy = new List<UILayerStackData>(uiLayerStacks);
             for (var i = copy.Count - 1; i >= 0; i--)
             {
                 if (copy[i].State == UILayerState.Exiting)
                     continue;
-                
+
                 copy[i].Layer.OnPreExit();
                 copy[i].State = UILayerState.Exiting;
                 copy[i].Layer.OnPostExit();
@@ -119,8 +119,6 @@ namespace CookApps.UIManagements
 
             // 5. 이전 씬 언로드
             OnSceneUnloadedEvent?.Invoke(CurrentSceneName);
-            if (prevHandle.IsValid())
-                Addressables.UnloadSceneAsync(prevHandle);
 
             Resources.UnloadUnusedAssets();
             GC.Collect();

@@ -9,7 +9,7 @@ namespace CookApps.UIExtensions
     public class InstantParticle
     {
         [SerializeField] private AssetReferenceGameObject particleRef;
-        
+
         public Awaitable<ParticleSystem> Create(Transform parent)
         {
             return Create(parent, false);
@@ -32,11 +32,11 @@ namespace CookApps.UIExtensions
             };
             if (autoPlay)
             {
-                if (isModifyPosition)
-                    particle.transform.localPosition = localPosition;
                 particle.gameObject.SetActive(true);
                 particle.Play();
             }
+            if (isModifyPosition)
+                particle.transform.localPosition = localPosition;
             return particle;
         }
     }

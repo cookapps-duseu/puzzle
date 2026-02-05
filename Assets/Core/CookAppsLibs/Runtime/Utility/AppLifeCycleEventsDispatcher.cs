@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace CookApps.Utility
 {
@@ -9,10 +10,10 @@ namespace CookApps.Utility
         public static event Action OnResume;
         public static event Action OnFocus;
 
-        protected override void Awake()
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        public static void Initialize()
         {
-            base.Awake();
-            DontDestroyOnLoad(this);
+            _ = Instance;
         }
 
         private void OnApplicationPause(bool pauseStatus)
