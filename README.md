@@ -3,7 +3,7 @@
 Use this template 으로 프로젝트를 생성할 경우, 생성 후
 
 ``` bash
-git remote add upstream https://github.com/your-org/playforge-template.git
+git remote add upstream https://github.com/cookapps-devops/bm-game-forge-template.git
 git fetch upstream
 git rebase --onto upstream/main --root main
 git push -f origin main
