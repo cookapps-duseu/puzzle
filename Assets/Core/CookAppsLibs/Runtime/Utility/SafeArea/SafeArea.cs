@@ -12,6 +12,7 @@ namespace CookApps.Utility
 
         private Rect processedSafeArea;
         private Vector2 processedResolution;
+        private RectTransform rectTr;
 
         public static (float left, float right, float top, float bottom) MarginRatio
         {
@@ -29,11 +30,19 @@ namespace CookApps.Utility
 
         private void Start()
         {
-            var rectTr = GetComponent<RectTransform>();
+            rectTr = GetComponent<RectTransform>();
+            Refresh();
+        }
+
+        public void Refresh(bool forceRecalculate = false)
+        {
+            if (rectTr == null)
+                rectTr = GetComponent<RectTransform>();
+
             var safeArea = Screen.safeArea;
             var resolution = Screen.fullScreen ? new Vector2(Screen.currentResolution.width, Screen.currentResolution.height) : new Vector2(Screen.width, Screen.height);
 
-            if (processedSafeArea == safeArea && processedResolution == resolution)
+            if (!forceRecalculate && processedSafeArea == safeArea && processedResolution == resolution)
                 return;
             processedSafeArea = safeArea;
             processedResolution = resolution;
