@@ -282,7 +282,7 @@ namespace CookApps.UIManagements
                 return null;
             }
 
-            if (string.IsNullOrEmpty(UILayerConstants.GetUILayerAddress(uiName)))
+            if (string.IsNullOrEmpty(UILayerAddressProvider.GetUILayerAddress(uiName)))
             {
                 CADebug.LogError($"{uiName} is not exist UI name!");
                 return null;
@@ -631,7 +631,7 @@ namespace CookApps.UIManagements
         #region Load UI from addressables
         private async Awaitable<UILayer> LoadUILayer(string uiLayerName)
         {
-            var address = UILayerConstants.GetUILayerAddress(uiLayerName);
+            var address = UILayerAddressProvider.GetUILayerAddress(uiLayerName);
             var handle = Addressables.InstantiateAsync(address, mainNode);
             await handle.WaitUntilDone();
             return handle.Result.GetComponent<UILayer>();
