@@ -30,13 +30,15 @@ namespace CookApps.UIExtensions
                 handle.Release();
                 particle = null;
             };
+
+            if (isModifyPosition)
+                particle.transform.localPosition = localPosition;
+
             if (autoPlay)
             {
                 particle.gameObject.SetActive(true);
                 particle.Play();
             }
-            if (isModifyPosition)
-                particle.transform.localPosition = localPosition;
             return particle;
         }
     }
