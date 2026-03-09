@@ -1,4 +1,4 @@
-using CookApps;
+using Cysharp.Threading.Tasks;
 using CookApps.UIManagements;
 using CookApps.Utility;
 using UnityEngine;
@@ -12,18 +12,18 @@ namespace Template
     {
         public static string TitleImagePath => "Textures/Standalone/Img_Splash.png";
         public static string LoadingImagePath => "Textures/Standalone/Img_Transition_001.png";
-        
+
         private float fadeInDuration = 0.1f;
         private float fadeOutDuration = 0.25f;
 
         private Image image;
         private AsyncOperationHandle<Sprite> spriteLoadHandle;
-        
+
         public override void Initialize(object viewOption)
         {
             var touchBlocker = CachedGo.AddComponent<NonDrawingGraphic>();
             touchBlocker.raycastTarget = true;
-            
+
             var imageGo = new GameObject("TransitionImage", typeof(RectTransform), typeof(Image), typeof(AspectRatioFitter));
             imageGo.transform.SetParent(CachedGo.transform, false);
             image = imageGo.GetComponent<Image>();
@@ -34,7 +34,7 @@ namespace Template
             spriteLoadHandle = Addressables.LoadAssetAsync<Sprite>(viewOption as string);
         }
 
-        public override async Awaitable FadeInAsync()
+        public override async UniTask FadeInAsync()
         {
             await spriteLoadHandle.WaitUntilDone();
             var sprite = spriteLoadHandle.Result;
@@ -49,11 +49,11 @@ namespace Template
             {
                 color.a += diff * Time.deltaTime / fadeInDuration;
                 image.color = color;
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
         }
 
-        public override async Awaitable FadeOutAsync()
+        public override async UniTask FadeOutAsync()
         {
             Color color = image.color;
             float diff = 0f - color.a;
@@ -61,7 +61,7 @@ namespace Template
             {
                 color.a += diff * Time.deltaTime / fadeOutDuration;
                 image.color = color;
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
         }
 

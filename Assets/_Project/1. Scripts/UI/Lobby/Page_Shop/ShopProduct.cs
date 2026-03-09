@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using CookApps.Iap.Result;
 using CookApps;
 using CookApps.Utility;
@@ -8,9 +9,9 @@ namespace Template
     public class ShopProduct : CachedMonoBehaviour
     {
         [SerializeField] private StorePriceText priceText;
-        
+
         private ISpecShop spec;
-        
+
         public void UpdateUI(ISpecShop spec)
         {
             this.spec = spec;
@@ -22,7 +23,7 @@ namespace Template
             Purchase().Forget();
         }
 
-        private async Awaitable Purchase()
+        private async UniTask Purchase()
         {
             (bool isSuccess, PurchaseResult result) = await CookAppsIapWrapper.Instance.PurchaseProduct(spec.ProductId, spec.Price);
             if (isSuccess)
@@ -33,7 +34,7 @@ namespace Template
                     assetData.AddReward(spec.RewardGroups.Rewards[i]);
                 }
             }
-            
+
             // TODO: 로그 남기기
         }
     }

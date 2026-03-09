@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -118,11 +119,11 @@ namespace CookApps.UIManagements
             }
         }
 
-        private async Awaitable CallAfterDelayFrame(int delayFrame, Action<UILayer> endCallback)
+        private async UniTask CallAfterDelayFrame(int delayFrame, Action<UILayer> endCallback)
         {
             for (int i = 0; i < delayFrame; i++)
             {
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
             endCallback?.Invoke(this);
         }

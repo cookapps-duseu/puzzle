@@ -3,6 +3,7 @@ using Cysharp.Text;
 using UnityEngine;
 using CookApps.UIManagements;
 using CookApps.Utility;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using Random = UnityEngine.Random;
 
@@ -13,18 +14,18 @@ namespace Template
         public class PopupItemRewardEffectParam
         {
             public List<(IReward reward, bool hasSrcPos, Vector3 srcPos)> dataList = new ();
-            
+
             public void AddReward(IReward reward, Vector3 srcPosition)
             {
                 dataList.Add((reward, true, srcPosition));
             }
-            
+
             public void AddReward(IReward reward)
             {
                 dataList.Add((reward, false, default));
             }
         }
-        
+
         [SerializeField] private UIBezierLauncher bezierLauncher;
         [SerializeField] private UIBezierLauncher coinLauncher;
         [SerializeField] private UIBezierMover coinMoverOrigin;
@@ -70,7 +71,7 @@ namespace Template
             var hasPlayButton = ObjectRegistry.Instance.TryGetObject(RegistryKey.PlayButton, out var playButton);
             var hasCoinPanel = ObjectRegistry.Instance.TryGetObject(RegistryKey.CoinPanel, out var coinPanel);
             var hasHeartPanel = ObjectRegistry.Instance.TryGetObject(RegistryKey.CoinPanel, out var heartPanel);
-            
+
             for (var i = 0; i < effectData.dataList.Count; i++)
             {
                 var data = effectData.dataList[i];
@@ -123,7 +124,7 @@ namespace Template
                 }
 
                 mover.CachedTr.position = mover.startPoint;
-                
+
                 if (assetType is AssetType.Heart or AssetType.InfiniteHeart)
                 {
                     mover.endPoint = hasHeartPanel ? heartPanel.CachedTr.position : mover.startPoint;
@@ -136,7 +137,7 @@ namespace Template
                 {
                     mover.endPoint = hasPlayButton ? playButton.CachedTr.position : mover.startPoint;
                 }
-                
+
                 bezierLauncher.AddMover(mover);
             }
 
@@ -144,17 +145,17 @@ namespace Template
             bezierLauncher.LaunchAsync().Forget();
             isRunning = true;
         }
-        
+
         private void OnLaunched(int index, int totalCount)
         {
             SoundManager.PlaySFX("sfx_stage_clear_gold_start");
         }
-        
+
         private void OnArrived(int index, int totalCount)
         {
             SoundManager.PlaySFX("sfx_stage_clear_gold_end");
         }
-        
+
         private void OnCoinArrived(int index, int totalCount)
         {
             if (isCoinChecked)
@@ -170,7 +171,7 @@ namespace Template
             }
             UserDataManager.Instance.GetAssetData().DecreaseExtra(AssetType.Coin, coinAmount);
         }
-        
+
         private void OnCoinLauncherDestroyed()
         {
             if (isCoinChecked)

@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using CookApps.UIManagements;
 using UnityEngine;
 using TMPro;
@@ -16,7 +17,7 @@ namespace Template
             public Action escapeAction;
         }
 
-        public static async Awaitable<PopupCommon> Show(string title, string desc, string buttonYText, string buttonNText, Action<object> closeCallback)
+        public static async UniTask<PopupCommon> Show(string title, string desc, string buttonYText, string buttonNText, Action<object> closeCallback)
         {
             var param = new PopupCommonParam
             {

@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public abstract class ThrottleActionBase
     protected readonly float delayDuration;
     protected float currDuration;
     protected bool isFastForward;
-    protected Awaitable currentTask;
+    protected UniTask currentTask;
 
     private CancellationTokenSource cts;
 
@@ -16,64 +17,57 @@ public abstract class ThrottleActionBase
     {
         delayDuration = duration;
         cts = new ();
-        CallEventActionLambda = CallEventAction;
     }
 
     ~ThrottleActionBase()
     {
-        // Debug.Log("~ThrottleActionBase");
         cts.Dispose();
     }
 
-    private async Awaitable Throttle(CancellationToken token)
+    private async UniTask Throttle(CancellationToken token)
     {
-        // Debug.Log("Throttle Start");
         isFastForward = false;
         currDuration = delayDuration;
         float prevRealTime = Time.realtimeSinceStartup;
         while (currDuration > 0 && !isFastForward)
         {
-            // Debug.Log($"currDuration: {currDuration}, isFastForward: {isFastForward}");
-            await Awaitable.NextFrameAsync(token);
+            await UniTask.NextFrame(token);
             var deltaTime = Time.realtimeSinceStartup - prevRealTime;
             prevRealTime = Time.realtimeSinceStartup;
             currDuration -= deltaTime;
         }
+    }
 
-        // await Awaitable.SwitchToMainThread();
-        // Debug.Log($"Throttle End");
+    private async UniTask ThrottleAndContinue(CancellationToken token)
+    {
+        await Throttle(token);
+        CallEventAction();
     }
 
     protected void ThrottleInvoke()
     {
-        if (currentTask?.IsCompleted ?? true)
+        if (currentTask.Status != UniTaskStatus.Pending)
         {
-            // Debug.Log($"ThrottleInvoke");
-            currentTask = Throttle(cts.Token);
-            currentTask.ContinueWith(CallEventActionLambda);
+            currentTask = ThrottleAndContinue(cts.Token);
         }
         else
         {
-            // Debug.Log($"Throttle Delay");
             currDuration = delayDuration;
         }
     }
-    
+
     public void FastForward()
     {
-        // Debug.Log($"Throttle FastForward");
         isFastForward = true;
     }
 
     protected void InvokeImmediately()
     {
-        // Debug.Log($"Throttle InvokeImmediately");
         cts.Cancel();
         cts = new ();
         CallEventAction();
     }
 
-    private Action CallEventActionLambda;
     protected abstract void CallEventAction();
 }
 

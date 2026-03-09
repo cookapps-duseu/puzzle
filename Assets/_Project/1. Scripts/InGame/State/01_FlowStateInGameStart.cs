@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 
@@ -15,9 +16,9 @@ namespace Template
             RunGameStartSequence().Forget();
         }
 
-        private async Awaitable RunGameStartSequence()
+        private async UniTask RunGameStartSequence()
         {
-            await Awaitable.WaitForSecondsAsync(0.5f);
+            await UniTask.WaitForSeconds(0.5f);
         }
 
         public override void StateRunning(float dt)

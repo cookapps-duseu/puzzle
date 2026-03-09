@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,7 +11,7 @@ namespace CookApps.UIManagements
         
         public AssetReferenceGameObject[] DefaultUILayers => defaultUILayers;
         
-        internal async Awaitable LoadDefaultUILayers(object param)
+        internal async UniTask LoadDefaultUILayers(object param)
         {
             for (var i = 0; i < defaultUILayers.Length; i++)
             {

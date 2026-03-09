@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -18,7 +19,7 @@ namespace CookApps.Utility
             }
         }
 
-        public static async Awaitable PreloadPool<T>(string poolPrefabAddress) where T : Component
+        public static async UniTask PreloadPool<T>(string poolPrefabAddress) where T : Component
         {
             if (pools.TryGetValue(poolPrefabAddress, out GameObjectPool pool))
             {
@@ -39,7 +40,7 @@ namespace CookApps.Utility
             objectPool.Initialize(handle);
         }
 
-        public static async Awaitable<GameObjectPool<T>> GetPoolAsync<T>(string poolPrefabAddress) where T : Component
+        public static async UniTask<GameObjectPool<T>> GetPoolAsync<T>(string poolPrefabAddress) where T : Component
         {
             if (pools.TryGetValue(poolPrefabAddress, out GameObjectPool pool))
             {
@@ -79,7 +80,7 @@ namespace CookApps.Utility
             throw new Exception($"No pool found for type {typeof(T)} with pool type {poolPrefabAddress}");
         }
 
-        public static async Awaitable ReleasePool(string poolType)
+        public static async UniTask ReleasePool(string poolType)
         {
             if (pools.Remove(poolType, out GameObjectPool pool))
             {
@@ -88,7 +89,7 @@ namespace CookApps.Utility
             }
         }
 
-        public static async Awaitable ReleasePool(GameObjectPool pool)
+        public static async UniTask ReleasePool(GameObjectPool pool)
         {
             foreach (var kvp in pools)
             {

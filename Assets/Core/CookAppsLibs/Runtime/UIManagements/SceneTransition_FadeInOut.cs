@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +27,7 @@ namespace CookApps.UIManagements
             dim = dimLayer;
         }
 
-        public override async Awaitable FadeInAsync()
+        public override async UniTask FadeInAsync()
         {
             Color color = dim.color;
             float diff = 1f - color.a;
@@ -34,11 +35,11 @@ namespace CookApps.UIManagements
             {
                 color.a += diff * Time.deltaTime / fadeInDuration;
                 dim.color = color;
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
         }
 
-        public override async Awaitable FadeOutAsync()
+        public override async UniTask FadeOutAsync()
         {
             Color color = dim.color;
             float diff = 0f - color.a;
@@ -46,7 +47,7 @@ namespace CookApps.UIManagements
             {
                 color.a += diff * Time.deltaTime / fadeOutDuration;
                 dim.color = color;
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
         }
 

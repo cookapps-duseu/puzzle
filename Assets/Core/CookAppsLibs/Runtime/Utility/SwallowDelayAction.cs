@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace CookApps.Utility
@@ -9,7 +10,7 @@ namespace CookApps.Utility
         protected float delayDuration;
         protected float currDuration;
         protected bool isFastForward;
-        protected Awaitable currentTask;
+        protected UniTask currentTask;
 
         private CancellationTokenSource cts;
 
@@ -29,26 +30,31 @@ namespace CookApps.Utility
             delayDuration = duration;
         }
 
-        private async Awaitable Swallow(CancellationToken token)
+        private async UniTask Swallow(CancellationToken token)
         {
             isFastForward = false;
             currDuration = delayDuration;
             float prevRealTime = Time.realtimeSinceStartup;
             while (currDuration > 0 && !isFastForward)
             {
-                await Awaitable.NextFrameAsync(token);
+                await UniTask.NextFrame(token);
                 var deltaTime = Time.realtimeSinceStartup - prevRealTime;
                 prevRealTime = Time.realtimeSinceStartup;
                 currDuration -= deltaTime;
             }
         }
 
+        private async UniTask SwallowAndContinue(CancellationToken token)
+        {
+            await Swallow(token);
+            CallEventAction();
+        }
+
         protected void DelayedInvoke()
         {
-            if (currentTask.IsCompleted)
+            if (currentTask.Status != UniTaskStatus.Pending)
             {
-                currentTask = Swallow(cts.Token);
-                currentTask.ContinueWith(CallEventAction);
+                currentTask = SwallowAndContinue(cts.Token);
             }
         }
 

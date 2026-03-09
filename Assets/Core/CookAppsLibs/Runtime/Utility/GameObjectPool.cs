@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -9,10 +10,10 @@ namespace CookApps.Utility
     public abstract class GameObjectPool
     {
         protected virtual bool IsInitialized { get; }
-        public virtual async Awaitable WaitForInitialize()
+        public virtual async UniTask WaitForInitialize()
         {
             while (!IsInitialized)
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
         }
 
         public abstract bool ReleasePool();

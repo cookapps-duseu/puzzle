@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using CookApps.Iap;
 using CookApps.Iap.Result;
 using Newtonsoft.Json.Linq;
@@ -32,7 +33,7 @@ namespace Template
         public static event Action<PurchaseResult> OnPurchaseSuccess;
         public static event Action<string> OnPurchaseFail;
 
-        public async Awaitable<bool> Initialize(List<ProductCatalogItem> items, Action<float> progressCallback)
+        public async UniTask<bool> Initialize(List<ProductCatalogItem> items, Action<float> progressCallback)
         {
             //CookAppsIap 초기화
             IapInitializeParam param;
@@ -92,7 +93,7 @@ namespace Template
         /// <param name="productId"></param>
         /// <param name="dollarPrice"></param>
         /// <returns></returns>
-        public async Awaitable<(bool, PurchaseResult)> PurchaseProduct(string productId, float dollarPrice)
+        public async UniTask<(bool, PurchaseResult)> PurchaseProduct(string productId, float dollarPrice)
         {
             PurchaseResult result = await CookAppsIap.Instance.Purchase(productId);
             if (result.Result != EnumResult.SUCCESS)
@@ -127,7 +128,7 @@ namespace Template
             //     receipt);
         }
 
-        public async Awaitable<bool> CheckReceiptAsync(PurchaseResult result, float dollarPrice)
+        public async UniTask<bool> CheckReceiptAsync(PurchaseResult result, float dollarPrice)
         {
     #if UNITY_EDITOR
             // return true;
@@ -136,7 +137,7 @@ namespace Template
             return await VerifyReceiptAsync(result, dollarPrice);
         }
 
-        public static async Awaitable<bool> VerifyReceiptAsync(PurchaseResult result, float dollarPrice)
+        public static async UniTask<bool> VerifyReceiptAsync(PurchaseResult result, float dollarPrice)
         {
             var validPurchase = true; // Presume valid for platforms with no R.V.
 
@@ -171,7 +172,7 @@ namespace Template
             return validPurchase;
         }
 
-        public async Awaitable ConfirmPendingPurchase(PurchaseResult purchaseResult)
+        public async UniTask ConfirmPendingPurchase(PurchaseResult purchaseResult)
         {
             var isFinished = false;
             var isSuccess = false;
@@ -182,7 +183,7 @@ namespace Template
             });
 
             while (!isFinished)
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             if (!isSuccess)
             {
                 return;

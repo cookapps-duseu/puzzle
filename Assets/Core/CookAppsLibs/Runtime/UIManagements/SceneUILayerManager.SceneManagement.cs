@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -76,7 +77,7 @@ namespace CookApps.UIManagements
             return operationWrapper;
         }
 
-        private async Awaitable ChangeSceneAsync(string sceneName, SceneLoadAsyncOperationWrapper operationWrapper, object defaultUIData)
+        private async UniTask ChangeSceneAsync(string sceneName, SceneLoadAsyncOperationWrapper operationWrapper, object defaultUIData)
         {
             // 2. 풀에 있는 UI들을 제거
             ClearUIPool();
@@ -114,7 +115,7 @@ namespace CookApps.UIManagements
             var nextSceneInstance = await handle.WaitUntilDone();
             while (!operationWrapper.allowSceneActivation)
             {
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
 
             // 5. 이전 씬 언로드
@@ -127,7 +128,7 @@ namespace CookApps.UIManagements
             var oper = nextSceneInstance.ActivateAsync();
             while (!oper.isDone)
             {
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
             CurrentSceneName = sceneName;
             ResetNodeRefs();

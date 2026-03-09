@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using CookApps.Iap.Result;
 using CookApps.UIExtensions;
 using CookApps.UIManagements;
@@ -118,7 +119,7 @@ namespace Template
             PurchaseProcess(shopInfo).Forget();
         }
         
-        public async Awaitable PurchaseProcess(ISpecShop shopInfo)
+        public async UniTask PurchaseProcess(ISpecShop shopInfo)
         {
             // 연출
             // var popup = await SceneUILayerManager.Instance.PushUILayerAsync<PopupPurchaseResult>();

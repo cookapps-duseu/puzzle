@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using CookApps.UIManagements;
 using CookApps.Utility;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace CookApps.UIExtensions
 
         bool isInitialized = false;
 
-        public async Awaitable Initialize(string alertAddress)
+        public async UniTask Initialize(string alertAddress)
         {
             if (isInitialized)
                 return;

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using CookApps.UIManagements;
 using CookApps.Utility;
 using UnityEngine;
@@ -17,17 +18,17 @@ namespace Template
         }
 
         private static InGameEnterInfo enterInfo;
-        private static async Awaitable StartSceneInternal()
+        private static async UniTask StartSceneInternal()
         {
             SceneTransition.Create<SceneTransition_Image>(SceneTransition_Image.LoadingImagePath);
             await SceneTransition.FadeInAsync();
             SceneLoading.GoToNextScene("InGame", new SceneLoadingEventReceiver(OnInGameEnterLoading, OnNextSceneLoaded), enterInfo);
         }
 
-        private static async Awaitable OnInGameEnterLoading()
+        private static async UniTask OnInGameEnterLoading()
         {
             // 0.5초 고정대기
-            await Awaitable.WaitForSecondsAsync(0.5f);
+            await UniTask.WaitForSeconds(0.5f);
         }
         
         private static void OnNextSceneLoaded()
@@ -35,9 +36,9 @@ namespace Template
             LoadInGameEntities().Forget();
         }
         
-        private static async Awaitable LoadInGameEntities()
+        private static async UniTask LoadInGameEntities()
         {
-            await Awaitable.NextFrameAsync();
+            await UniTask.NextFrame();
             var manager = Object.FindFirstObjectByType<InGameManager>();
             var inGameUI = SceneUILayerManager.Instance.GetUILayer<InGameMain>();
             inGameUI.Initialize();
@@ -49,7 +50,7 @@ namespace Template
             SoundManager.PlayInGameBGM();
         }
 
-        public static async Awaitable EndScene(LobbyEnterInfo lobbyEnterInfo)
+        public static async UniTask EndScene(LobbyEnterInfo lobbyEnterInfo)
         {
             GameObjectPoolManager.Clear();
             SceneTransition.Create<SceneTransition_Image>(SceneTransition_Image.LoadingImagePath);
@@ -57,7 +58,7 @@ namespace Template
             SceneLoading.GoToNextScene("Lobby", null, lobbyEnterInfo);
         }
 
-        public static async Awaitable RestartScene(InGameEnterInfo enterInfo)
+        public static async UniTask RestartScene(InGameEnterInfo enterInfo)
         {
             GameObjectPoolManager.Clear();
             InGameSession.enterInfo = enterInfo;

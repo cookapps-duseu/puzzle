@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Template
@@ -23,7 +24,7 @@ namespace Template
         /// </summary>
         /// <param name="runNextCallback">모든 작업이 끝나고 다음 flow로 넘길 수 있을 때 호출</param>
         /// <param name="runKilledCallback">작업 후 로비에 머무르지않아서 다음 flow로 넘길 수 없을 경우(ex. 씬이 이동되거나 할 경우) 호출</param>
-        public abstract Awaitable Run(Action runNextCallback, Action runKilledCallback);
+        public abstract UniTask Run(Action runNextCallback, Action runKilledCallback);
 
         /// <summary>
         /// 외부에서 실행 중인 flow를 강제로 종료시키는 경우 호출됨

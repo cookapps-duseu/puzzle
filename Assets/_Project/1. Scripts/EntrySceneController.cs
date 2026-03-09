@@ -1,4 +1,5 @@
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using CookApps.UIExtensions;
 using CookApps.UIManagements;
 using CookApps.Utility;
@@ -17,7 +18,7 @@ namespace Template
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         async void Start()
         {
-            await Awaitable.NextFrameAsync();
+            await UniTask.NextFrame();
 
             TMP_Settings.fallbackFontAssets.Clear();
             Application.targetFrameRate = 60;

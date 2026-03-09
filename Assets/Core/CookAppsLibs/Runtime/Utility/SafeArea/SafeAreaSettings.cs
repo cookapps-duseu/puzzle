@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -27,7 +28,7 @@ namespace CookApps.Utility
             InitializeAsync().Forget();
         }
 
-        private static async Awaitable InitializeAsync()
+        private static async UniTask InitializeAsync()
         {
             if (Active != null)
                 return;

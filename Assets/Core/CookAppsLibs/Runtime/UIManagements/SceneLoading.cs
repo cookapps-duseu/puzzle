@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 
@@ -6,10 +7,10 @@ namespace CookApps.UIManagements
 {
     public class SceneLoadingEventReceiver
     {
-        public Func<Awaitable> OnLoading { get; }
+        public Func<UniTask> OnLoading { get; }
         public Action OnNextSceneLoaded { get; }
-        
-        public SceneLoadingEventReceiver(Func<Awaitable> onLoading, Action onNextSceneLoaded)
+
+        public SceneLoadingEventReceiver(Func<UniTask> onLoading, Action onNextSceneLoaded)
         {
             OnLoading = onLoading;
             OnNextSceneLoaded = onNextSceneLoaded;
@@ -53,7 +54,7 @@ namespace CookApps.UIManagements
             EnterAsync().Forget();
         }
 
-        private async Awaitable EnterAsync()
+        private async UniTask EnterAsync()
         {
             if (sceneLoadingData.SceneLoadingEventReceiver != null)
             {

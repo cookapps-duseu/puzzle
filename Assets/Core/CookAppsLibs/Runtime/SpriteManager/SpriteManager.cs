@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -14,7 +15,7 @@ namespace CookApps
             public readonly AssetReferenceT<T> assetRef;
             public T asset;
             public int refCount;
-            public AwaitableCompletionSource<T> loadingTask;
+            public UniTaskCompletionSource<T> loadingTask;
             public bool isLoading;
 
             public AsyncAssetHandle(ulong hash, AssetReferenceT<T> assetRef)
@@ -23,16 +24,16 @@ namespace CookApps
                 this.assetRef = assetRef;
             }
 
-            public async Awaitable<T> LoadAsync(string debugContext)
+            public async UniTask<T> LoadAsync(string debugContext)
             {
                 if (asset != null)
                     return asset;
 
                 if (isLoading && loadingTask != null)
-                    return await loadingTask.Awaitable;
+                    return await loadingTask.Task;
 
                 isLoading = true;
-                loadingTask = new AwaitableCompletionSource<T>();
+                loadingTask = new UniTaskCompletionSource<T>();
                 try
                 {
                     var oper = assetRef.OperationHandle;
@@ -132,7 +133,7 @@ namespace CookApps
         private Dictionary<ulong, AsyncAssetHandle<Sprite>> spriteHandles;
         private bool isInitialized;
 
-        public async Awaitable Initialize(string soAddress)
+        public async UniTask Initialize(string soAddress)
         {
             var handle = Addressables.LoadAssetAsync<SpriteManagerScriptableObject>(soAddress);
             so = await handle.WaitUntilDone();
@@ -152,7 +153,7 @@ namespace CookApps
             isInitialized = true;
         }
 
-        public async Awaitable<Sprite> GetSprite(string spriteName)
+        public async UniTask<Sprite> GetSprite(string spriteName)
         {
             if (!isInitialized)
             {

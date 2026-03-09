@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using CookApps.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,12 +11,12 @@ namespace CookApps.UIExtensions
     {
         [SerializeField] private AssetReferenceGameObject particleRef;
 
-        public Awaitable<ParticleSystem> Create(Transform parent)
+        public UniTask<ParticleSystem> Create(Transform parent)
         {
             return Create(parent, false);
         }
 
-        public async Awaitable<ParticleSystem> Create(Transform parent, bool autoPlay, bool isModifyPosition = false, Vector3 localPosition = default)
+        public async UniTask<ParticleSystem> Create(Transform parent, bool autoPlay, bool isModifyPosition = false, Vector3 localPosition = default)
         {
             if (!particleRef.RuntimeKeyIsValid())
                 return null;

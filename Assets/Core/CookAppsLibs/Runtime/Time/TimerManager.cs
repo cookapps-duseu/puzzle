@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace CookApps.Utility
@@ -61,7 +62,7 @@ namespace CookApps.Utility
             willRemoveListeners.Add(new KeyValuePair<int, int>(type, key));
         }
 
-        private async Awaitable Update()
+        private async UniTask Update()
         {
             while (true)
             {
@@ -130,7 +131,7 @@ namespace CookApps.Utility
                     willAddListeners.Clear();
                 }
 
-                await Awaitable.WaitForSecondsAsync(0.25f);
+                await UniTask.WaitForSeconds(0.25f);
             }
         }
         #endregion

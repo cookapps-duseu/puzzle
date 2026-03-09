@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using CookApps.UIExtensions;
 using CookApps.UIManagements;
 using CookApps.Utility;
@@ -48,7 +49,7 @@ namespace Template
             EnterAsync(param).Forget();
         }
         
-        private async Awaitable EnterAsync(object param)
+        private async UniTask EnterAsync(object param)
         {
             //로비 BGM
             SoundManager.StopAll();

@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Template
@@ -24,7 +25,7 @@ namespace Template
             return true;
         }
 
-        public override async Awaitable Run(Action runNextCallback, Action runKilledCallback)
+        public override async UniTask Run(Action runNextCallback, Action runKilledCallback)
         {
             runNextCallback?.Invoke();
         }

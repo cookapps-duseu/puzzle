@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using CookApps.UIManagements;
 using CookApps.WorldTouch;
 using UnityEngine;
@@ -28,11 +29,11 @@ namespace Template
             _ = WaitAndEndTutorialAsync(cts.Token);
         }
 
-        private async Awaitable WaitAndEndTutorialAsync(CancellationToken ctsToken)
+        private async UniTask WaitAndEndTutorialAsync(CancellationToken ctsToken)
         {
             try
             {
-                await Awaitable.WaitForSecondsAsync(5, ctsToken);
+                await UniTask.WaitForSeconds(5, cancellationToken: ctsToken);
             }
             catch (OperationCanceledException)
             {

@@ -1,4 +1,5 @@
 using Cysharp.Text;
+using Cysharp.Threading.Tasks;
 using CookApps;
 using CookApps.Utility;
 using UnityEngine;
@@ -47,7 +48,7 @@ namespace Template
             return (newLocale, language);
         }
 
-        public async Awaitable Initialize(string tableCollectionName)
+        public async UniTask Initialize(string tableCollectionName)
         {
             CheckLanguage();
             _tableCollectionName = tableCollectionName;

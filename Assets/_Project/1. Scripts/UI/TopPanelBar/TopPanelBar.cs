@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using CookApps.UIManagements;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Template
     {
         private static int inc;
 
-        public static async Awaitable<TopPanelBar> AddToUILayer(UILayer targetUI, params TopPanelType[] ownPanelTypes)
+        public static async UniTask<TopPanelBar> AddToUILayer(UILayer targetUI, params TopPanelType[] ownPanelTypes)
         {
             return await SceneUILayerManager.Instance.PushUILayerAsync<TopPanelBar>($"TopPanelBar_{inc++}", (targetUI, ownPanelTypes));
         }

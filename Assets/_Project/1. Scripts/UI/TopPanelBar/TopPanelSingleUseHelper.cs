@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using CookApps;
 using CookApps.Utility;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Template
 
         private List<TopPanelBar> topUIs = new ();
 
-        public async Awaitable Initialize(string prefabAddress)
+        public async UniTask Initialize(string prefabAddress)
         {
             var topUIOrigin = await Addressables.InstantiateAsync(prefabAddress, transform).WaitUntilDone();
             topUIOriginTr = topUIOrigin.transform;

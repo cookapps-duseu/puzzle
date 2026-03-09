@@ -3,6 +3,7 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -153,135 +154,37 @@ namespace CookApps.Utility
         }
     }
 
-    public static class AwaitableExtensions
+    public static class UniTaskExtensions
     {
-        public static async Awaitable WhenAll(this IList<Awaitable> tasks)
-        {
-            for (var i = 0; i < tasks.Count; i++)
-            {
-                var task = tasks[i];
-                await task;
-            }
-        }
-        
-        public static async Awaitable WhenAll<T>(this IList<Awaitable<T>> tasks)
-        {
-            for (var i = 0; i < tasks.Count; i++)
-            {
-                var task = tasks[i];
-                await task;
-            }
-        }
-        
-        public static async Awaitable WaitUntil(Func<bool> predicate, CancellationToken cancellationToken = default)
-        {
-            while (!predicate())
-                await Awaitable.NextFrameAsync(cancellationToken);
-        }
-        
-        public static async Awaitable<T> WaitUntilDone<T>(this AsyncOperationHandle<T> handle)
+        public static async UniTask<T> WaitUntilDone<T>(this AsyncOperationHandle<T> handle)
         {
             while (true)
             {
                 if (!handle.IsValid())
                     return default;
-        
+
                 if (handle.IsDone)
                     return handle.Result;
 
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
         }
 
-        public static async Awaitable WaitUntilDone(this AsyncOperationHandle handle)
+        public static async UniTask WaitUntilDone(this AsyncOperationHandle handle)
         {
             while (true)
             {
                 if (!handle.IsValid())
                     return;
-        
+
                 if (handle.IsDone)
                     return;
 
-                await Awaitable.NextFrameAsync();
-            }
-        }
-        
-        public static async void Forget(this Awaitable awaitable)
-        {
-            try
-            {
-                await awaitable;
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-            }
-        }
-
-        public static async void Forget<T>(this Awaitable<T> awaitable)
-        {
-            try
-            {
-                await awaitable;
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-            }
-        }
-
-        public static void ContinueWith(this Awaitable awaitable, Action continuationAction)
-        {
-            Awaitable.Awaiter awaiter = awaitable.GetAwaiter();
-            awaiter.OnCompleted(continuationAction);
-        }
-
-        public static async void ContinueWith<TState>(this Awaitable awaitable, Action<TState> continuationAction,
-            TState state)
-        {
-            try
-            {
-                await awaitable;
-                continuationAction.Invoke(state);
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-                throw e;
-            }
-        }
-
-        public static async void ContinueWith<T>(this Awaitable<T> awaitable, Action<T> continuationAction)
-        {
-            try
-            {
-                var res = await awaitable;
-                continuationAction.Invoke(res);
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-                throw e;
-            }
-        }
-
-        public static async void ContinueWith<T, TState>(this Awaitable<T> awaitable, Action<T, TState> continuationAction,
-            TState state)
-        {
-            try
-            {
-                var res = await awaitable;
-                continuationAction?.Invoke(res, state);
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-                throw e;
+                await UniTask.NextFrame();
             }
         }
     }
-    
+
     public static class TransformExtensions
     {
         public static List<Transform> GetAllChildRecursive(this Transform tr)
@@ -300,7 +203,7 @@ namespace CookApps.Utility
                 GetAllChildRecursive(child, children); // 재귀 호출로 자식의 자식들도 추가
             }
         }
-        
+
         public static void SetLayerRecursive(this Transform tr, int layer)
         {
             SetLayerInternal(tr, layer);
@@ -316,7 +219,7 @@ namespace CookApps.Utility
             }
         }
     }
-    
+
     public static class DateTimeExtensions
     {
         private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -349,12 +252,12 @@ namespace CookApps.Utility
             var utc = ToUtcDateTime(value);
             return TimeZoneInfo.ConvertTimeFromUtc(utc, TimeZoneInfo.Local);
         }
-        
+
         public static DateTime ToUtcDateTime(this long value)
         {
             return Epoch.AddMilliseconds(value);
         }
-        
+
         public static string ToLeftTimeStringHHMMSS(this TimeSpan leftTimeSpan)
         {
             if (leftTimeSpan.TotalHours > 1)
@@ -371,7 +274,7 @@ namespace CookApps.Utility
         {
             var timeSpan = TimeSpan.FromMinutes(minutes);
             using var _ = ListPool<string>.Get(out var parts);
-            
+
             if (timeSpan.Days > 0)
             {
                 parts.Add($"{timeSpan.Days}d");
@@ -381,17 +284,17 @@ namespace CookApps.Utility
             {
                 parts.Add($"{timeSpan.Hours}h");
             }
-            
+
             if (timeSpan.Minutes > 0)
             {
                 parts.Add($"{timeSpan.Minutes}m");
             }
-            
+
             if (timeSpan.Seconds > 0)
             {
                 parts.Add($"{timeSpan.Seconds}s");
             }
-            
+
             int partLength = Math.Min(parts.Count, 2);
             return string.Join(" ", parts, 0, partLength);
         }

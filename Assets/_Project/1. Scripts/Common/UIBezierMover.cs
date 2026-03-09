@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using CookApps;
 using CookApps.UIExtensions;
 using CookApps.Utility;
@@ -53,7 +54,7 @@ namespace Template
             }, this);
         }
 
-        public async Awaitable StartMovement()
+        public async UniTask StartMovement()
         {
             elapsedTime = 0f;
             CachedRectTr.position = startPoint;
@@ -73,7 +74,7 @@ namespace Template
                 CachedRectTr.localScale = Vector3.Lerp(startScale, endScale, t);
                 if (t < 1f)
                 {
-                    await Awaitable.NextFrameAsync();
+                    await UniTask.NextFrame();
                     if (destroyCancellationToken.IsCancellationRequested)
                         break;
                 }

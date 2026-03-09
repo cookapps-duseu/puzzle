@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace CookApps.UIManagements
@@ -31,14 +32,14 @@ namespace CookApps.UIManagements
             Current = comp;
         }
 
-        public static async Awaitable FadeInAsync()
+        public static async UniTask FadeInAsync()
         {
             if (Current == null)
                 return;
             await Current.FadeInAsync();
         }
 
-        public static async Awaitable FadeOutAsync()
+        public static async UniTask FadeOutAsync()
         {
             if (Current == null)
                 return;

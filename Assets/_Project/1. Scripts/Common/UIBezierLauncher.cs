@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using CookApps.Inspector;
 using CookApps.Utility;
 using UnityEngine;
@@ -73,7 +74,7 @@ namespace Template
         }
     #endif
 
-        public async Awaitable LaunchAsync()
+        public async UniTask LaunchAsync()
         {
             if (!isInitialized)
             {
@@ -93,7 +94,7 @@ namespace Template
             {
                 movers[i].StartMovement().Forget();
                 OnLaunched?.Invoke(i, movers.Count);
-                await Awaitable.WaitForSecondsAsync(interval, destroyCancellationToken);
+                await UniTask.WaitForSeconds(interval, cancellationToken: destroyCancellationToken);
                 if (destroyCancellationToken.IsCancellationRequested)
                     break;
             }

@@ -1,4 +1,5 @@
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +27,7 @@ namespace CookApps
             this.spriteName = null;
         }
 
-        public async Awaitable SetSprite(string spriteName)
+        public async UniTask SetSprite(string spriteName)
         {
             if (this.spriteName == spriteName)
                 return;

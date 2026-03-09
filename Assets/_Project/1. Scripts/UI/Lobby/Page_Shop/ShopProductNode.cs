@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using CookApps;
 using CookApps.Utility;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Template
             LoadShopPrefab(spec).Forget();
         }
 
-        private async Awaitable LoadShopPrefab(ISpecShop spec)
+        private async UniTask LoadShopPrefab(ISpecShop spec)
         {
             if (loadedHandle.IsValid())
             {

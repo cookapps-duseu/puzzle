@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using CookApps.UIExtensions;
 using CookApps.Utility;
 using UnityEngine;
@@ -235,7 +236,7 @@ namespace CookApps.UIManagements
         /// <param name="data">팝업의 OnPreEnter 함수의 인자로 넣어줄 데이터입니다.</param>
         /// <param name="closeCallback">팝업이 닫힐 때 호출될 콜백입니다.</param>
         /// <returns>팝업 객체입니다.</returns>
-        public async Awaitable<T> PushUILayerAsync<T>(object data = null, Action<object> closeCallback = null) where T : UILayer
+        public async UniTask<T> PushUILayerAsync<T>(object data = null, Action<object> closeCallback = null) where T : UILayer
         {
             string uiName = typeof(T).Name;
             var layer = await PushUILayerAsync<T>(uiName, data, closeCallback);
@@ -249,18 +250,18 @@ namespace CookApps.UIManagements
         /// <param name="data">팝업의 OnPreEnter 함수의 인자로 넣어줄 데이터입니다.</param>
         /// <param name="closeCallback">팝업이 닫힐 때 호출될 콜백입니다.</param>
         /// <returns>팝업 객체입니다.</returns>
-        public async Awaitable<T> PushUILayerAsync<T>(string key, object data = null, Action<object> closeCallback = null) where T : UILayer
+        public async UniTask<T> PushUILayerAsync<T>(string key, object data = null, Action<object> closeCallback = null) where T : UILayer
         {
             var layer = await PushUILayerAsync(typeof(T), key, data, closeCallback);
             return layer as T;
         }
 
-        internal async Awaitable<UILayer> PushUILayerAsync(Type uiType, string key, object data = null, Action<object> closeCallback = null)
+        internal async UniTask<UILayer> PushUILayerAsync(Type uiType, string key, object data = null, Action<object> closeCallback = null)
         {
             string uiName = uiType.Name;
             while (isLoadingUI)
             {
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
             }
 
             var isExistUIStack = false;
@@ -629,7 +630,7 @@ namespace CookApps.UIManagements
         #endregion
 
         #region Load UI from addressables
-        private async Awaitable<UILayer> LoadUILayer(string uiLayerName)
+        private async UniTask<UILayer> LoadUILayer(string uiLayerName)
         {
             var address = UILayerAddressProvider.GetUILayerAddress(uiLayerName);
             var handle = Addressables.InstantiateAsync(address, mainNode);

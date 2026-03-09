@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using CookApps;
 using CookApps.UIExtensions;
 using UnityEngine;
@@ -20,9 +21,9 @@ namespace Template
             EnterAsync().Forget();
         }
 
-        private async Awaitable EnterAsync()
+        private async UniTask EnterAsync()
         {
-            await Awaitable.NextFrameAsync();
+            await UniTask.NextFrame();
             await SceneTransition.FadeOutAsync();
      
             #region TitleTasks
@@ -45,7 +46,7 @@ namespace Template
             // LogManager.progress(0);
             // LogManager.LOGIN();
 
-            var handles = new List<Awaitable>();
+            var handles = new List<UniTask>();
             handles.Add(LocalizationManager.Instance.Initialize("Localization"));
             handles.Add(AlertMessageManager.Instance.Initialize("Prefabs/Popup/Common/PopupToast.prefab"));
             
