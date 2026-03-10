@@ -18,13 +18,13 @@ namespace Template
 
         private bool isInitialized;
         public bool isLaunched;
-        
+
         public event System.Action<int, int> OnLaunched;
         public event System.Action<int, int> OnArrived;
         public event System.Action OnDestroyed;
 
         private Action<int> CachedOnCompleted;
-        
+
         private void OnDestroy()
         {
             OnDestroyed?.Invoke();
@@ -35,7 +35,7 @@ namespace Template
         {
             CachedOnCompleted = OnMoverCompleted;
         }
-        
+
         public void AddMover(UIBezierMover mover)
         {
             if (isInitialized)
@@ -43,7 +43,7 @@ namespace Template
                 Debug.LogError("UIBezierLauncher: Cannot add mover after initialization.");
                 return;
             }
-            
+
             if (!movers.Contains(mover))
                 movers.Add(mover);
         }
@@ -59,7 +59,7 @@ namespace Template
 
             for (var i = 0; i < movers.Count; i++)
             {
-                movers[i].Initialize(i, dest, CachedOnCompleted);
+                movers[i].Initialize(i, dest, CachedOnCompleted).Forget();
             }
         }
 
@@ -89,7 +89,7 @@ namespace Template
             }
 
             isLaunched = true;
-            
+
             for (int i = 0; i < movers.Count; i++)
             {
                 movers[i].StartMovement().Forget();
@@ -98,7 +98,7 @@ namespace Template
                 if (destroyCancellationToken.IsCancellationRequested)
                     break;
             }
-            
+
             isLaunched = false;
         }
 

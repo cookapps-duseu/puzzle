@@ -1,5 +1,5 @@
 using CookApps.UIManagements;
-using CookApps.Utility;
+using Cysharp.Threading.Tasks;
 
 namespace Template
 {
@@ -7,9 +7,9 @@ namespace Template
     {
         public void Initialize()
         {
-            
+
         }
-        
+
         protected void OnApplicationPause(bool pauseStatus)
         {
             if (pauseStatus)
@@ -22,7 +22,7 @@ namespace Template
         {
             OnClickPause();
         }
-        
+
         public void OnClickPause()
         {
             SceneUILayerManager.Instance.PushUILayerAsync<PopupInGamePause>().Forget();

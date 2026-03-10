@@ -2,7 +2,6 @@ using System;
 using Cysharp.Threading.Tasks;
 using CookApps;
 using CookApps.UIExtensions;
-using CookApps.Utility;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -44,14 +43,12 @@ namespace Template
         private int index;
         private ParticleSystem particle;
 
-        public void Initialize(int index, Transform dest = null, Action<int> onComplete = null)
+        public async UniTask Initialize(int index, Transform dest = null, Action<int> onComplete = null)
         {
             OnComplete = onComplete;
             this.index = index;
-            instantParticle.Create(dest).ContinueWith((particle, self) =>
-            {
-                self.particle = particle;
-            }, this);
+            var particle = await instantParticle.Create(dest);
+            this.particle = particle;
         }
 
         public async UniTask StartMovement()
@@ -87,7 +84,7 @@ namespace Template
             particle.transform.localPosition = endPoint;
             particle.gameObject.SetActive(true);
             particle.Play();
-            
+
             gameObject.SetActive(false);
             Destroy(gameObject);
             OnComplete?.Invoke(index);
